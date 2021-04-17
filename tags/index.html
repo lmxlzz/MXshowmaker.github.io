@@ -145,11 +145,11 @@ layui.use('element', function(){
         <div class="layui-row">
             
             <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
-                <a href="/"><p class="footer-url">home</p></a>
+                <a href="/about/"><p class="footer-url">About</p></a>
             </div>
             
             <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
-                <a href="/about/"><p class="footer-url">About</p></a>
+                <a href="/"><p class="footer-url">home</p></a>
             </div>
             
         </div>
@@ -157,7 +157,7 @@ layui.use('element', function(){
     
     
     <div class="layui-container">
-        <p class="copyright">&copy; All rights reserved. Powered by <a href='https://gohugo.io' style='color:#FFFFFF'>Hugo</a> and <a href='https://github.com/ertuil/erblog' style='color:#FFFFFF'>Erblog</a>.</p>
+        <p class="copyright">Copyright © 2020–2021, all rights reserved.</p>
     </div>
 
 <script type="text/x-mathjax-config">
@@ -177,6 +177,13 @@ layui.use('element', function(){
 </script>
 <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
+<script>
+    var local_imgs=document.getElementsByTagName('img');
+    for (var i = 0; i < local_imgs.length; i++) {
+        var src = local_imgs[i].getAttribute('src');
+        local_imgs[i].setAttribute('src',"../"+src);
+    } 
+</script>
 </footer>
 
 </body>
