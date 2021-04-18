@@ -6,7 +6,7 @@
     <title>Blogs of Ming-Xian Lin - Hugo 搭建个人博客 —- My first post </title>
     
     
-    <meta content="Blogs of Ming-Xian Lin" name="keywords">
+    <meta content="blog" name="keywords">
     
     <meta content="Blogs of Ming-Xian Lin - A website called Blogs of Ming-Xian Lin" name="description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -117,19 +117,25 @@ layui.use('element', function(){
     
 
     
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 1px;margin-right:2px;"></i>
+    
 
+    
+        <a href="/tags/blog/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">blog</span>
+        </a>
     
     
 </h3>
 
                 </blockquote>
                 <div class="layui-card-body markdown-body single-content">
-                    <h1 id="hugo-install">hugo install</h1>
+                    <h1 id="1-hugo-install">1. hugo install</h1>
 <p>使用<code>brew</code>进行安装。</p>
 <p>环境：<code>MacOS</code>,<code>Big Sur</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install hugo
 hugo version <span style="color:#75715e"># 安装正确的话，可以正常查看</span>
-</code></pre></div><h1 id="themes">Themes</h1>
+</code></pre></div><h1 id="2-themes">2. Themes</h1>
 <p>在安装好<code>hugo</code>之后，进入<code>hugo</code><a href="https://themes.gohugo.io/">官方主题模板</a>选择心仪的模板。这里我选择了<a href="https://github.com/ertuil/erblog">erblog</a>.</p>
 <p>为blog创建一个文件夹： xxx-blog（名字随意）。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd xxx-blog
@@ -140,7 +146,14 @@ cp themes/erblog/exampleSite/config.toml .	<span style="color:#75715e">#使用�
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">DefaultContentLanguage <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;zh-cn&#34;</span> <span style="color:#75715e"># 修改为中文</span>
 </code></pre></div><p>请到<a href="https://github.com/ertuil/erblog">Erblog</a> 的<code>Configuration</code>中查看更多的参数设置。</p>
 <p>e.g. <code>author</code>, <code>bio</code>,</p>
-<h1 id="公式的显示">公式的显示</h1>
+<h1 id="3-创建blog">3. 创建blog</h1>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd xxx-blog
+hugo new post/my-first-post.md
+</code></pre></div><p>在此基础上编辑新建的文章，添加内容并保存。</p>
+<h3 id="加入-tag-标签">加入 tag 标签</h3>
+<p>在标头加入：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-markdown" data-lang="markdown">tags: blog
+</code></pre></div><h1 id="4-公式的显示">4. 公式的显示</h1>
 <p>为了加速渲染，只在每篇文章的标头加</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">math: true
 </code></pre></div><p>如果为了方便，可以在config文件中加</p>
@@ -189,7 +202,7 @@ $$
 &lt;/<span style="color:#f92672">script</span>&gt;
 &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span> <span style="color:#a6e22e">async</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
 
-</code></pre></div><h1 id="图片的显示">图片的显示</h1>
+</code></pre></div><h1 id="5-图片的显示">5. 图片的显示</h1>
 <h3 id="显示效果">显示效果</h3>
 <p>测试图片1</p>
 <p><img src="my_first_post.assets/image-20210417200124419.png" alt="image-20210417200124419"></p>
@@ -205,7 +218,7 @@ $$
     } 
 &lt;/<span style="color:#f92672">script</span>&gt;
 </code></pre></div><p>这么做还有一个好处，那就是当我把md文件移动到另一个文件夹，我只需要将对应的”./${filename}.assets“移动到和md一级的目录，本地的md能够正常显示，同时翻译后的html文件也能正常显示。</p>
-<h1 id="生成以及上传">生成以及上传</h1>
+<h1 id="6-生成以及上传">6. 生成以及上传</h1>
 <h3 id="生成">生成</h3>
 <p>在<code>xxx-blog</code>目录下，先使用<code>hugo</code>进行编译，</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">hugo
@@ -216,17 +229,17 @@ $$
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd public
 git init
 git remote add origin https://github.com/<span style="color:#f92672">[</span>Github 用户名<span style="color:#f92672">]</span>/<span style="color:#f92672">[</span>Github 用户名<span style="color:#f92672">]</span>.github.io.git
-git add -a
+git add .
 git commit -m <span style="color:#e6db74">&#34;[介绍，随便写点什么，比如日期]&#34;</span>
 git push -u origin master
 </code></pre></div><p>如果不是第一次执行，如下：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add -a
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git add .
 git commit -m <span style="color:#e6db74">&#34;[介绍，随便写点什么，比如日期]&#34;</span>
 git push -u origin master
-</code></pre></div><h1 id="ending">Ending</h1>
+</code></pre></div><h1 id="7-ending">7. Ending</h1>
 <p>至此，使用 <code>hugo</code> 搭建部署在 <code>github.io</code>的个人博客的流程介绍完毕。</p>
 <p>第一次写blog，对这个搭建过程进行记录并且以此练练手。</p>
-<h1 id="reference">Reference</h1>
+<h1 id="8-reference">8. Reference</h1>
 <ul>
 <li><a href="https://ztygcs.github.io/posts/hugo+mathjax%E5%AE%9E%E7%8E%B0%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E7%9A%84%E6%B8%B2%E6%9F%93/">MathJax渲染数学公式</a></li>
 <li><a href="https://blog.csdn.net/zhezhebie/article/details/78761417">git修改/添加/删除远程仓库</a></li>
@@ -247,6 +260,39 @@ git push -u origin master
                 
                 <div style="margin-left: 10px;">
                     <blockquote class="self-elem-quote self-elem-quote-bg-red" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/2021/04/glow/">
+                        <h3 class="">GLOW</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2021-04-17</span>
+
+    
+    
+
+    
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 1px;margin-right:2px;"></i>
+    
+
+    
+        <a href="/tags/flow/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">flow</span>
+        </a>
+    
+        <a href="/tags/generative-model/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">generative model</span>
+        </a>
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-red" style="background-color:#FFFFFF;margin-top: 10px;">
                     <a href="/post/my_first_post/">
                         <h3 class="">Hugo 搭建个人博客 —- My first post</h3>
                     </a>
@@ -260,7 +306,13 @@ git push -u origin master
     
 
     
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 1px;margin-right:2px;"></i>
+    
 
+    
+        <a href="/tags/blog/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">blog</span>
+        </a>
     
     
 </h3>
