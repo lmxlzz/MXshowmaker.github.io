@@ -14,7 +14,13 @@
       
       <guid>https://example.com/post/2021/04/glow/</guid>
       <description>content 知乎real-NVP 里面的【RealNVP中的多尺度结构图示】是讲解的真清楚。
-随手先记录一下，等待后续更新。</description>
+随手先记录一下，等待后续更新。
+Log-likelihood-based methods:
+- VAE - FLOW - AUTO-REGRESSIVE  $\log p_G(x_i) = \log \pi(G^{-1}(x_i)) + \log|\det(J_{G^{-1}})|$
+最大似然目标： $$ p_K (x^i) = \pi(z^i)(|\det (J_{G_1^{-1}})|)&amp;hellip;(|\det (J_{G_k^{-1}})|) $$
+取对数之后： $$ \log p_K (x^i) = \log \pi(z^i) + \sum_{h=1}^K \log (|\det (J_{G_h^{-1}})|) $$ 要使得 $x^i$的出现概率最大，就得保证$z^i$ 在Gaussian中最大，这会导致$z^i$全部趋近于0。
+但是后面的求和会限制$z^i$全部趋近于0。
+详细的参考来自于李宏毅机器学习2019(国语)，讲解的非常清晰。</description>
     </item>
     
   </channel>
