@@ -1,0 +1,397 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Blogs of Ming-Xian Lin - Convolutional Occupancy Networks  </title>
+    
+    
+    <meta content="implicit field, convolution" name="keywords">
+    
+    <meta content="Blogs of Ming-Xian Lin - 相关信息 Title: Convolutional Occupancy Networks
+Link: https://arxiv.org/abs/2003.04618
+Github Link: https://github.com/autonomousvision/convolutional_occupancy_networks
+收录于 ECCV20
+Motivation 这篇文章是在他们组之前工作 Occupancy Networks: Learning 3D Reconstruction in Function Space 的基础上加入卷积操作的升级版。
+之前的一些在隐势场上的工作如： IM-Net, OccNet等等，在细节上的效果不是非常的理想。ConvOccNet这篇文章的作者认为主要的原因是他们都用全连接（fully-conneted layer）来训练网络，无法有效的获取空间（也可以认为是local 相对于 global 的特征）。
+例如，Fig.1中的(a)，对于每个 query point而言，输入的特征都是通过 全连接层得到的，全连接层无法像卷积那样有效的包含local information。Fig.1中的(b)，3D Feature Volume是通过3D卷积得到的，这个卷积的过程中可以有效的包含local information。
+同时，作者还说了，之前的那些基于全连接层的隐势场工作没办法在场景重建上work，这同样是由于缺少了卷积操作从而导致local information的缺失。使用ConvOccNet是可以重建出细节保存比较好的模型。
+补充一点在看这篇paper related work时候注意到的点：
+Notable exceptions are PIFu and DISN which use pixel-aligned implicit representations to reconstruct people in clothing or ShapeNet objects.
+这两篇用隐势场搞 SVR 的工作都关注到了局部细节上重建。
+Methods Encoders 文章提供了基于 3种投影方法与2种输入（一共6种）Encoder。
+输入类型 支持两种类型的输入：点云（3k for single object, 10k for scene）和 体素($64^3, 32^3$)。" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    
+
+    
+
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            extensions: ["tex2jax.js"],
+            jax: ["input/TeX", "output/HTML-CSS"],
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true
+            },
+            "HTML-CSS": { availableFonts: ["TeX"] }
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+    
+
+    <link rel="stylesheet" href="/layui/css/layui.css">
+    <link rel="stylesheet" href="/self/css/default.css">
+    <script src=" /layui/layui.js"></script>
+
+    <link rel="stylesheet" async href="/self/css/markdown.min.css">
+    <link rel="stylesheet" async href="/self/css/gallery.css">
+    
+    
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
+    <script async src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE=" crossorigin="anonymous"></script></head>
+
+<body>
+    
+    <header class="layui-header layui-bg-cyan">
+
+    
+    
+    <a class="nav-self-logo" href="/">
+        Blogs of Ming-Xian Lin
+    </a>
+
+    <ul class="layui-nav layui-layout-right layui-bg-cyan" lay-filter="">
+        
+        
+        <li class="layui-nav-item" id="nav_big"><a href="/post/">Posts</a></li>
+        
+
+        
+            
+                <li class="layui-nav-item" id="nav_big"><a href="/about/">About</a></li>
+            
+        
+
+        
+        <li class="layui-nav-item" id="nav_small">
+            <a href="javascript:;">
+                <i class="layui-icon layui-icon-app" style="font-size: 24px;"></i>
+            </a>
+
+            <dl class="layui-nav-child">
+                
+                <dd><a href="/post/">Posts</a></dd>
+                
+
+                
+                    
+                        <dd><a href="/about/">About</a></dd>
+                    
+                
+            </dl>
+        </li>
+    </ul>
+</header>
+
+<script>
+layui.use('element', function(){
+  var element = layui.element;
+});
+</script>
+
+        <div id="content" style="min-height:80%">
+<div class="layui-container" style="margin-bottom: 10px">
+    
+
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-md8 layui-col-sm12 layui-col-xs12">
+            <div class="layui-card single-card">
+                <br />
+                <blockquote class="self-elem-quote self-elem-quote-bg-red markdown-body single-title" >
+                    <h1>Convolutional Occupancy Networks </h1>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2021-04-20</span>
+
+    
+    
+
+    
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 1px;margin-right:2px;"></i>
+    
+
+    
+        <a href="/tags/implicit-field/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">implicit field</span>
+        </a>
+    
+        <a href="/tags/convolution/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">convolution</span>
+        </a>
+    
+    
+</h3>
+
+                </blockquote>
+                <div class="layui-card-body markdown-body single-content">
+                    <h1 id="相关信息">相关信息</h1>
+<p>Title: <strong>Convolutional Occupancy Networks</strong></p>
+<p>Link: <a href="https://arxiv.org/abs/2003.04618">https://arxiv.org/abs/2003.04618</a></p>
+<p>Github Link: <a href="https://github.com/autonomousvision/convolutional_occupancy_networks">https://github.com/autonomousvision/convolutional_occupancy_networks</a></p>
+<p>收录于 <strong>ECCV20</strong></p>
+<h1 id="motivation">Motivation</h1>
+<p>这篇文章是在他们组之前工作 <a href="https://arxiv.org/abs/1812.03828">Occupancy Networks: Learning 3D Reconstruction in Function Space</a> 的基础上加入卷积操作的升级版。</p>
+<p>之前的一些在隐势场上的工作如： <a href="https://openaccess.thecvf.com/content_CVPR_2019/papers/Chen_Learning_Implicit_Fields_for_Generative_Shape_Modeling_CVPR_2019_paper.pdf">IM-Net</a>, OccNet等等，在细节上的效果不是非常的理想。ConvOccNet这篇文章的作者认为主要的原因是他们都用全连接（fully-conneted layer）来训练网络，无法有效的获取空间（也可以认为是local 相对于 global 的特征）。</p>
+<p><img src="Convolutional_Occupancy_Networks.assets/image-20210420230304689.png" alt="image-20210420230304689"></p>
+<p>例如，Fig.1中的(a)，对于每个 <code>query point</code>而言，输入的特征都是通过 <code>全连接层</code>得到的，<code>全连接层</code>无法像卷积那样有效的包含<code>local information</code>。Fig.1中的(b)，<code>3D Feature Volume</code>是通过3D卷积得到的，这个卷积的过程中可以有效的包含<code>local information</code>。</p>
+<p>同时，作者还说了，之前的那些基于全连接层的隐势场工作没办法在场景重建上work，这同样是由于缺少了卷积操作从而导致local information的缺失。使用ConvOccNet是可以重建出细节保存比较好的模型。</p>
+<p><strong>补充一点在看这篇paper related work时候注意到的点：</strong></p>
+<p>Notable exceptions are <a href="https://shunsukesaito.github.io/PIFu/">PIFu</a> and <a href="https://arxiv.org/abs/1905.10711">DISN</a> which use pixel-aligned implicit representations to reconstruct people in clothing or ShapeNet objects.</p>
+<p>这两篇用隐势场搞 SVR 的工作都关注到了<strong>局部细节</strong>上重建。</p>
+<h1 id="methods">Methods</h1>
+<h3 id="encoders">Encoders</h3>
+<p>文章提供了基于 3种投影方法与2种输入（一共6种）Encoder。</p>
+<h4 id="输入类型">输入类型</h4>
+<p>支持两种类型的输入：点云（3k for single object, 10k for scene）和 体素($64^3, 32^3$)。</p>
+<p>对于点云，使用 浅层的PointNet来提取特征。</p>
+<p>对于体素，使用 3d 卷积提取特征。</p>
+<h4 id="投影方法">投影方法</h4>
+<p>这块地方我觉得是整篇文章的重点。</p>
+<p><img src="Convolutional_Occupancy_Networks.assets/image-20210420232556868.png" alt="image-20210420232556868"></p>
+<p>这里以点云的输入为例子，参考图二：</p>
+<ul>
+<li>one plane
+<ul>
+<li>Fig2(a). 将每个点的特征（通过PointNet得到）投影到 ground plane上。</li>
+<li>对于ground plane上的每个点最后的feature是在 【以这个点为中心，和四周的四个点的中点连线形成的正方形区域内所有点的 average pooling】。</li>
+<li>得到 $H\times W\times d$</li>
+</ul>
+</li>
+<li>three plane
+<ul>
+<li>与 one plane 类似，就是需要投影到 xy, yz, zx 三个平面上。</li>
+<li>得到 3个 $H\times W\times d$</li>
+</ul>
+</li>
+<li>volume
+<ul>
+<li>不需要投影，只需要将同一个voxel cell 中feature 进行 average pooling。</li>
+<li>$H\times W\times D\times d$</li>
+</ul>
+</li>
+</ul>
+<h3 id="decoders">Decoders</h3>
+<p>这里就用到了<strong>卷积</strong>。对于  one plane ，将 这个plane的上的特征 $H\times W\times d$ 使用一次 <code>hourglass</code>结构的<code>Unet</code>。我是觉得，其实 PointNet是可以获取 local 与 global 之间的关系，这里再用一次 <code>卷积</code>，是将局部之间的联系加深，在同一个局部的特征会被加强体现出来（通过Unet的卷积）。</p>
+<p>对于 three plane，操作是与 one plane 类似的，然后这3个Unet是共享参数的。对于 volume的话，就是使用 3d unet。</p>
+<p>在进行<code>卷积操作</code>以后，后面的步骤其实与 OccNet 是类似的。搞一个MLP，把 query point在上面算出来的特征与query point 作为输入，把这个 query point 是否 occupancy的概率作为输入。
+$$
+f_{\theta}(P, \psi(P, x)) \rightarrow [0, 1]
+$$</p>
+<p>$x$是输入的点云提取的特征，$P$是query point。</p>
+<h3 id="training-and-inference">Training and Inference</h3>
+<p>loss的话比较简单，就是将预测出来的2048个query point的occupancy值和gt计算交叉熵。</p>
+<p><img src="Convolutional_Occupancy_Networks.assets/image-20210420234543342.png" alt="image-20210420234543342"></p>
+<p>在训练好隐势场之后，为了获取 mesh，用了和 OccNet 一样的算法， MISE(对Marching Cube进行改进，加速mesh的生成速度和质量)。</p>
+<h1 id="experiments">Experiments</h1>
+<p>在 单个object，scene 上对模型进行测试。</p>
+<p>我从作者的实验结果上感觉，对于single object以点云作为输入的情况下， three plane 和 volume的形式重建出来的效果比较好。</p>
+<p><img src="Convolutional_Occupancy_Networks.assets/image-20210420234944827.png" alt="image-20210420234944827"></p>
+<p>对于体素输入的话，<code>one plane</code>的效果是坏掉了。</p>
+<p><img src="Convolutional_Occupancy_Networks.assets/image-20210420235033148.png" alt="image-20210420235033148"></p>
+<h3 id="scene-level">scene level</h3>
+<p>作者在文章中特别提到：</p>
+<p><strong>While high-resolution canonical plane features capture fine details they are prone to noise. Low-resolution volumetric features are instead more robust to noise, yet produce smoother surfaces</strong></p>
+<p>然后他就在场景的重建中结合了 plane 和 volume 两种方法一起做比较。</p>
+<h1 id="需要注意的点">需要注意的点</h1>
+<ul>
+<li>The increase in plane resolution for the single plane variant does not result in a clear performance boost, demonstrating that higher resolution does not necessarily guarantee better performance.
+<ul>
+<li>不一定越高越好，可能 plane 的精度以后用的时候就卡在 64 或者 128 。</li>
+</ul>
+</li>
+<li>The plane-based approaches are more affected by the domain shift.</li>
+<li>从Table 5看的。</li>
+<li>We find that 3D CNNs are more robust to noise as they aggregate features from all neighbors which results in smooth outputs.</li>
+</ul>
+</div>
+            </div>
+        </div>
+
+        <div class="layui-col-md4 layui-col-sm12 layui-col-xs12">
+            
+
+            <div class="layui-card single-card">
+                <h2 class="single-title">Recent Posts</h2>
+            
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-red" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/2021/04/convolutional_occupancy_networks/">
+                        <h3 class="">Convolutional Occupancy Networks </h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2021-04-20</span>
+
+    
+    
+
+    
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 1px;margin-right:2px;"></i>
+    
+
+    
+        <a href="/tags/implicit-field/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">implicit field</span>
+        </a>
+    
+        <a href="/tags/convolution/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">convolution</span>
+        </a>
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-red" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/2021/04/glow/">
+                        <h3 class="">GLOW</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2021-04-17</span>
+
+    
+    
+
+    
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 1px;margin-right:2px;"></i>
+    
+
+    
+        <a href="/tags/flow/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">flow</span>
+        </a>
+    
+        <a href="/tags/generative-model/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">generative model</span>
+        </a>
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+                <div style="margin-left: 10px;">
+                    <blockquote class="self-elem-quote self-elem-quote-bg-red" style="background-color:#FFFFFF;margin-top: 10px;">
+                    <a href="/post/my_first_post/">
+                        <h3 class="">Hugo 搭建个人博客 —- My first post</h3>
+                    </a>
+                    <h3 style="margin-top:10px; margin-bottom:10px"> 
+    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
+    <span>2021-04-17</span>
+
+    
+    
+
+    
+
+    
+    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 1px;margin-right:2px;"></i>
+    
+
+    
+        <a href="/tags/blog/">
+            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">blog</span>
+        </a>
+    
+    
+</h3>
+
+                    </blockquote>
+                </div>
+                
+            
+            <br />
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+        </div><footer>
+    
+
+    <div class="layui-container">
+        <div class="layui-row">
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs6">
+                <h3> Related Sites </h3>
+            </div>
+        </div>
+        <div class="layui-row">
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/about/"><p class="footer-url">About</p></a>
+            </div>
+            
+            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
+                <a href="/"><p class="footer-url">home</p></a>
+            </div>
+            
+        </div>
+    </div>
+    
+    
+    <div class="layui-container">
+        <p class="copyright">Copyright © 2020–2021, all rights reserved.</p>
+    </div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['~+(','~+)']],
+            displayMath: [['$$','$$'], ['~+[','~+]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: {
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script>
+    var local_imgs=document.getElementsByTagName('img');
+    for (var i = 0; i < local_imgs.length; i++) {
+        var src = local_imgs[i].getAttribute('src');
+        local_imgs[i].setAttribute('src',"../"+src);
+    } 
+</script>
+</footer>
+
+</body>
+</html>

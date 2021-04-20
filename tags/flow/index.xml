@@ -14,13 +14,16 @@
       
       <guid>https://example.com/post/2021/04/glow/</guid>
       <description>content 知乎real-NVP 里面的【RealNVP中的多尺度结构图示】是讲解的真清楚。
+以下是苏剑林关于 actnorm的评价
+所以，这一点是需要批评的，纯粹将旧概念换了个新名字罢了。当然，批评的是 OpenAI 在 Glow 中乱造新概念，而不是这个层的效果。缩放平移的加入，确实有助于更好地训练模型。而且，由于 Actnorm 的存在，仿射耦合层的尺度变换已经显得不那么重要了。 我们看到，相比于加性耦合层，仿射耦合层多了一个尺度变换层，从而计算量翻了一倍。但事实上相比加性耦合，仿射耦合效果的提升并不高（尤其是加入了 Actnorm 后），所以要训练大型的模型，为了节省资源，一般都只用加性耦合，比如 Glow 训练 256x256 的高清人脸生成模型，就只用到了加性耦合。 小结论：使用actnorm之后，可以在耦合层中只使用加性耦合。
 随手先记录一下，等待后续更新。
 Log-likelihood-based methods:
 - VAE - FLOW - AUTO-REGRESSIVE  $\log p_G(x_i) = \log \pi(G^{-1}(x_i)) + \log|\det(J_{G^{-1}})|$
 最大似然目标： $$ p_K (x^i) = \pi(z^i)(|\det (J_{G_1^{-1}})|)&amp;hellip;(|\det (J_{G_k^{-1}})|) $$
 取对数之后： $$ \log p_K (x^i) = \log \pi(z^i) + \sum_{h=1}^K \log (|\det (J_{G_h^{-1}})|) $$ 要使得 $x^i$的出现概率最大，就得保证$z^i$ 在Gaussian中最大，这会导致$z^i$全部趋近于0。
 但是后面的求和会限制$z^i$全部趋近于0。
-详细的参考来自于李宏毅机器学习2019(国语)，讲解的非常清晰。</description>
+详细的参考来自于李宏毅机器学习2019(国语)，讲解的非常清晰。
+【学习笔记】生成模型——流模型（Flow）</description>
     </item>
     
   </channel>
