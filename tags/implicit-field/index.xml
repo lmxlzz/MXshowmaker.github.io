@@ -25,7 +25,7 @@ Motivation 这篇文章是在他们组之前工作 Occupancy Networks: Learning 
 Notable exceptions are PIFu and DISN which use pixel-aligned implicit representations to reconstruct people in clothing or ShapeNet objects.
 这两篇用隐势场搞 SVR 的工作都关注到了局部细节上重建。
 Methods Encoders 文章提供了基于 3种投影方法与2种输入（一共6种）Encoder。
-输入类型 支持两种类型的输入：点云（3k for single object, 10k for scene）和 体素($64^3, 32^3$)。</description>
+输入类型 支持两种类型的输入：点云（3k for single object 或者 10k for scene）和 体素($64^3$或者$32^3$)。</description>
     </item>
     
   </channel>

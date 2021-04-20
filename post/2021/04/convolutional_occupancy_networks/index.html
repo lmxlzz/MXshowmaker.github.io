@@ -20,7 +20,7 @@ Motivation 这篇文章是在他们组之前工作 Occupancy Networks: Learning 
 Notable exceptions are PIFu and DISN which use pixel-aligned implicit representations to reconstruct people in clothing or ShapeNet objects.
 这两篇用隐势场搞 SVR 的工作都关注到了局部细节上重建。
 Methods Encoders 文章提供了基于 3种投影方法与2种输入（一共6种）Encoder。
-输入类型 支持两种类型的输入：点云（3k for single object, 10k for scene）和 体素($64^3, 32^3$)。" name="description">
+输入类型 支持两种类型的输入：点云（3k for single object 或者 10k for scene）和 体素($64^3$或者$32^3$)。" name="description">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     
@@ -164,7 +164,7 @@ layui.use('element', function(){
 <h3 id="encoders">Encoders</h3>
 <p>文章提供了基于 3种投影方法与2种输入（一共6种）Encoder。</p>
 <h4 id="输入类型">输入类型</h4>
-<p>支持两种类型的输入：点云（3k for single object, 10k for scene）和 体素($64^3, 32^3$)。</p>
+<p>支持两种类型的输入：点云（3k for single object 或者 10k for scene）和 体素($64^3$或者$32^3$)。</p>
 <p>对于点云，使用 浅层的PointNet来提取特征。</p>
 <p>对于体素，使用 3d 卷积提取特征。</p>
 <h4 id="投影方法">投影方法</h4>
@@ -175,7 +175,7 @@ layui.use('element', function(){
 <li>one plane
 <ul>
 <li>Fig2(a). 将每个点的特征（通过PointNet得到）投影到 ground plane上。</li>
-<li>对于ground plane上的每个点最后的feature是在 【以这个点为中心，和四周的四个点的中点连线形成的正方形区域内所有点的 average pooling】。</li>
+<li>对于ground plane上的每个点最后的feature是在 【以这个点为中心，和四周的四个点的中点连线形成的正方形区域(<strong>fig2(a)地面的红框</strong>)内所有点的 average pooling】。</li>
 <li>得到 $H\times W\times d$</li>
 </ul>
 </li>
@@ -193,9 +193,9 @@ layui.use('element', function(){
 </li>
 </ul>
 <h3 id="decoders">Decoders</h3>
-<p>这里就用到了<strong>卷积</strong>。对于  one plane ，将 这个plane的上的特征 $H\times W\times d$ 使用一次 <code>hourglass</code>结构的<code>Unet</code>。我是觉得，其实 PointNet是可以获取 local 与 global 之间的关系，这里再用一次 <code>卷积</code>，是将局部之间的联系加深，在同一个局部的特征会被加强体现出来（通过Unet的卷积）。</p>
+<p>这里就用到了<strong>卷积</strong>。对于  one plane ，将 这个plane的上的特征 $H\times W\times d$ 使用一次基于 <code>hourglass</code>结构的<code>Unet</code>。我是觉得，其实 PointNet是可以获取 local 与 global 之间的关系，这里用 <code>卷积</code>，是将局部的一小撮点云之间的联系加深，在同一个局部的特征会被加强体现出来（通过Unet的卷积）。</p>
 <p>对于 three plane，操作是与 one plane 类似的，然后这3个Unet是共享参数的。对于 volume的话，就是使用 3d unet。</p>
-<p>在进行<code>卷积操作</code>以后，后面的步骤其实与 OccNet 是类似的。搞一个MLP，把 query point在上面算出来的特征与query point 作为输入，把这个 query point 是否 occupancy的概率作为输入。
+<p>在进行<code>卷积操作</code>以后，后面的步骤其实与 OccNet 是类似的。搞一个MLP，把 query point在上面算出来的特征与query point 作为输入，把这个 query point 是否 occupancy的概率作为输出。
 $$
 f_{\theta}(P, \psi(P, x)) \rightarrow [0, 1]
 $$</p>
@@ -213,7 +213,7 @@ $$</p>
 <h3 id="scene-level">scene level</h3>
 <p>作者在文章中特别提到：</p>
 <p><strong>While high-resolution canonical plane features capture fine details they are prone to noise. Low-resolution volumetric features are instead more robust to noise, yet produce smoother surfaces</strong></p>
-<p>然后他就在场景的重建中结合了 plane 和 volume 两种方法一起做比较。</p>
+<p>然后他就在场景的重建中【把 plane 和 volume 两种方法互补起来作为一种方法】，在ablation study中一起做比较。</p>
 <h1 id="需要注意的点">需要注意的点</h1>
 <ul>
 <li>The increase in plane resolution for the single plane variant does not result in a clear performance boost, demonstrating that higher resolution does not necessarily guarantee better performance.
@@ -225,6 +225,8 @@ $$</p>
 <li>从Table 5看的。</li>
 <li>We find that 3D CNNs are more robust to noise as they aggregate features from all neighbors which results in smooth outputs.</li>
 </ul>
+<h1 id="ending">Ending</h1>
+<p>因为最近可能要用到这个工作，就重新把它拿出来再看了一遍，暂时还没有过一遍代码，理解的并不是非常深入。</p>
 </div>
             </div>
         </div>
