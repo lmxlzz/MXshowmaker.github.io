@@ -2,53 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Blogs of Ming-Xian</title>
-    <link>MaxwellLin3104.github.io/tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on Blogs of Ming-Xian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 20 Apr 2021 22:35:42 +0800</lastBuildDate><atom:link href="MaxwellLin3104.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Apr 2021 22:35:42 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>convolution</title>
-      <link>MaxwellLin3104.github.io/tags/convolution/</link>
+      <link>/tags/convolution/</link>
       <pubDate>Tue, 20 Apr 2021 22:35:42 +0800</pubDate>
       
-      <guid>MaxwellLin3104.github.io/tags/convolution/</guid>
+      <guid>/tags/convolution/</guid>
       <description></description>
     </item>
     
     <item>
       <title>implicit field</title>
-      <link>MaxwellLin3104.github.io/tags/implicit-field/</link>
+      <link>/tags/implicit-field/</link>
       <pubDate>Tue, 20 Apr 2021 22:35:42 +0800</pubDate>
       
-      <guid>MaxwellLin3104.github.io/tags/implicit-field/</guid>
+      <guid>/tags/implicit-field/</guid>
       <description></description>
     </item>
     
     <item>
       <title>flow</title>
-      <link>MaxwellLin3104.github.io/tags/flow/</link>
+      <link>/tags/flow/</link>
       <pubDate>Sat, 17 Apr 2021 23:15:39 +0800</pubDate>
       
-      <guid>MaxwellLin3104.github.io/tags/flow/</guid>
+      <guid>/tags/flow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>generative model</title>
-      <link>MaxwellLin3104.github.io/tags/generative-model/</link>
+      <link>/tags/generative-model/</link>
       <pubDate>Sat, 17 Apr 2021 23:15:39 +0800</pubDate>
       
-      <guid>MaxwellLin3104.github.io/tags/generative-model/</guid>
+      <guid>/tags/generative-model/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blog</title>
-      <link>MaxwellLin3104.github.io/tags/blog/</link>
+      <link>/tags/blog/</link>
       <pubDate>Sat, 17 Apr 2021 14:34:30 +0800</pubDate>
       
-      <guid>MaxwellLin3104.github.io/tags/blog/</guid>
+      <guid>/tags/blog/</guid>
       <description></description>
     </item>
     
