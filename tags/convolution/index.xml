@@ -1,31 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>convolution on Blogs of Ming-Xian Lin</title>
-    <link>https://example.com/tags/convolution/</link>
-    <description>Recent content in convolution on Blogs of Ming-Xian Lin</description>
+    <title>convolution on Blogs of Ming-Xian</title>
+    <link>/tags/convolution/</link>
+    <description>Recent content in convolution on Blogs of Ming-Xian</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 20 Apr 2021 22:35:42 +0800</lastBuildDate><atom:link href="https://example.com/tags/convolution/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 20 Apr 2021 22:35:42 +0800</lastBuildDate><atom:link href="/tags/convolution/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Convolutional Occupancy Networks </title>
-      <link>https://example.com/post/2021/04/convolutional_occupancy_networks/</link>
+      <link>/post/2021/04/convolutional_occupancy_networks/</link>
       <pubDate>Tue, 20 Apr 2021 22:35:42 +0800</pubDate>
       
-      <guid>https://example.com/post/2021/04/convolutional_occupancy_networks/</guid>
-      <description>相关信息 Title: Convolutional Occupancy Networks
-Link: https://arxiv.org/abs/2003.04618
-Github Link: https://github.com/autonomousvision/convolutional_occupancy_networks
-收录于 ECCV20
-Motivation 这篇文章是在他们组之前工作 Occupancy Networks: Learning 3D Reconstruction in Function Space 的基础上加入卷积操作的升级版。
-之前的一些在隐势场上的工作如： IM-Net, OccNet等等，在细节上的效果不是非常的理想。ConvOccNet这篇文章的作者认为主要的原因是他们都用全连接（fully-conneted layer）来训练网络，无法有效的获取空间（也可以认为是local 相对于 global 的特征）。
-例如，Fig.1中的(a)，对于每个 query point而言，输入的特征都是通过 全连接层得到的，全连接层无法像卷积那样有效的包含local information。Fig.1中的(b)，3D Feature Volume是通过3D卷积得到的，这个卷积的过程中可以有效的包含local information。
-同时，作者还说了，之前的那些基于全连接层的隐势场工作没办法在场景重建上work，这同样是由于缺少了卷积操作从而导致local information的缺失。使用ConvOccNet是可以重建出细节保存比较好的模型。
-补充一点在看这篇paper related work时候注意到的点：
-Notable exceptions are PIFu and DISN which use pixel-aligned implicit representations to reconstruct people in clothing or ShapeNet objects.
-这两篇用隐势场搞 SVR 的工作都关注到了局部细节上重建。
-Methods Encoders 文章提供了基于 3种投影方法与2种输入（一共6种）Encoder。
-输入类型 支持两种类型的输入：点云（3k for single object 或者 10k for scene）和 体素($64^3$或者$32^3$)。</description>
+      <guid>/post/2021/04/convolutional_occupancy_networks/</guid>
+      <description>相关信息 Title: Convolutional Occupancy Networks Link: https://arxiv.org/abs/2003.04618 Github Link: https://github.com/autonomousvision/convolutional_occupancy_networks 收录于 ECCV20 Motivation 这篇文章是在他们组之前工作 Occupancy Networks: Learning 3D Reconstruction in Function Space 的基础上加入卷积操作的升级版。 之前的一些在隐势场上的工作如： IM-Net,</description>
     </item>
     
   </channel>

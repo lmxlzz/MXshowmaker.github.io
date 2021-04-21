@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Blogs of Ming-Xian Lin</title>
-    <link>https://example.com/tags/</link>
-    <description>Recent content in Tags on Blogs of Ming-Xian Lin</description>
+    <title>Tags on Blogs of Ming-Xian</title>
+    <link>/tags/</link>
+    <description>Recent content in Tags on Blogs of Ming-Xian</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 20 Apr 2021 22:35:42 +0800</lastBuildDate><atom:link href="https://example.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 20 Apr 2021 22:35:42 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>convolution</title>
-      <link>https://example.com/tags/convolution/</link>
+      <link>/tags/convolution/</link>
       <pubDate>Tue, 20 Apr 2021 22:35:42 +0800</pubDate>
       
-      <guid>https://example.com/tags/convolution/</guid>
+      <guid>/tags/convolution/</guid>
       <description></description>
     </item>
     
     <item>
       <title>implicit field</title>
-      <link>https://example.com/tags/implicit-field/</link>
+      <link>/tags/implicit-field/</link>
       <pubDate>Tue, 20 Apr 2021 22:35:42 +0800</pubDate>
       
-      <guid>https://example.com/tags/implicit-field/</guid>
+      <guid>/tags/implicit-field/</guid>
       <description></description>
     </item>
     
     <item>
       <title>flow</title>
-      <link>https://example.com/tags/flow/</link>
+      <link>/tags/flow/</link>
       <pubDate>Sat, 17 Apr 2021 23:15:39 +0800</pubDate>
       
-      <guid>https://example.com/tags/flow/</guid>
+      <guid>/tags/flow/</guid>
       <description></description>
     </item>
     
     <item>
       <title>generative model</title>
-      <link>https://example.com/tags/generative-model/</link>
+      <link>/tags/generative-model/</link>
       <pubDate>Sat, 17 Apr 2021 23:15:39 +0800</pubDate>
       
-      <guid>https://example.com/tags/generative-model/</guid>
+      <guid>/tags/generative-model/</guid>
       <description></description>
     </item>
     
     <item>
       <title>blog</title>
-      <link>https://example.com/tags/blog/</link>
+      <link>/tags/blog/</link>
       <pubDate>Sat, 17 Apr 2021 14:34:30 +0800</pubDate>
       
-      <guid>https://example.com/tags/blog/</guid>
+      <guid>/tags/blog/</guid>
       <description></description>
     </item>
     

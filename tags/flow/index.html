@@ -1,204 +1,298 @@
-<html>
+<!DOCTYPE HTML>
+<html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Blogs of Ming-Xian Lin - flow </title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>flow - Blogs of Ming-Xian</title>
+    <meta name="keywords" content="博客,思考,读书,笔记,分享">
     
+    <meta property="og:title" content="flow">
+    <meta property="og:site_name" content="Blogs of Ming-Xian">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="flow - Blogs of Ming-Xian" />
+    <meta name="description" content=" 博客 | Leanring | Python"> 
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon.png" />
+    <link href="/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
     
-    <meta content="Blogs of Ming-Xian Lin" name="keywords">
-    
-    <meta content="Blogs of Ming-Xian Lin - A website called Blogs of Ming-Xian Lin" name="description">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    
-
-    
-        <link href="/tags/flow/index.xml" rel="alternate" type="application/rss&#43;xml" title="Blogs of Ming-Xian Lin" />
-        <link href="/tags/flow/index.xml" rel="feed" type="application/rss&#43;xml" title="Blogs of Ming-Xian Lin" />
-    
-
-    
-
-    
-
-    <link rel="stylesheet" href="/layui/css/layui.css">
-    <link rel="stylesheet" href="/self/css/default.css">
-    <script src=" /layui/layui.js"></script>
-
-    <link rel="stylesheet" async href="/self/css/markdown.min.css">
-    <link rel="stylesheet" async href="/self/css/gallery.css">
-    
-    
-    
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-    <script async src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" integrity="sha256-h2tMEmhemR2IN4wbbdNjj9LaDIjzwk2hralQwfJmBOE=" crossorigin="anonymous"></script></head>
-
-<body>
-    
-    <header class="layui-header layui-bg-cyan">
-
-    
-    
-    <a class="nav-self-logo" href="/">
-        Blogs of Ming-Xian Lin
-    </a>
-
-    <ul class="layui-nav layui-layout-right layui-bg-cyan" lay-filter="">
-        
-        
-        <li class="layui-nav-item" id="nav_big"><a href="/post/">Posts</a></li>
-        
-
-        
-            
-                <li class="layui-nav-item" id="nav_big"><a href="/about/">About</a></li>
-            
-        
-
-        
-        <li class="layui-nav-item" id="nav_small">
-            <a href="javascript:;">
-                <i class="layui-icon layui-icon-app" style="font-size: 24px;"></i>
-            </a>
-
-            <dl class="layui-nav-child">
-                
-                <dd><a href="/post/">Posts</a></dd>
-                
-
-                
-                    
-                        <dd><a href="/about/">About</a></dd>
-                    
-                
-            </dl>
-        </li>
-    </ul>
-</header>
-
-<script>
-layui.use('element', function(){
-  var element = layui.element;
-});
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: false, 
+    motion: true
+  };
 </script>
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left   ">
+    <div class="headband"></div>
 
-        <div id="content" style="min-height:80%">
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
 
-<main id="main">
-
-<div class="layui-fluid list-show" >
-    <div class="layui-row">
-        <div class="layui-col-md6 layui-col-sm12 layui-col-xs12">
-            <div class="list-show-title">
-                <h1>These are my blogs</h1>
-                <h2>and also my life</h2>
-            </div>
-        </div>
-        <div class="layui-col-md6 layui-col-sm12 layui-col-xs12" style="text-align:center;">
-            <img src="/self/img/undraw_chat_bot_kli5.png" class="list-title-pic">
-        </div>
-    </div>
+  <div class="custom-logo-site-title">
+    <a href=""  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Blogs of Ming-Xian</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
 </div>
 
-<div class="layui-container">
-        
-            <blockquote class="self-elem-quote self-elem-quote-bg-red" style="background-color:#FFFFFF;margin-top: 10px;">
-        <a href="/post/2021/04/glow/">
-            <h2 class="">GLOW</h2>
-        </a>
-        <h3 style="margin-top:10px; margin-bottom:10px"> 
-    <i class="layui-icon layui-icon-date" style="font-size: 28px; vertical-align: -2px;"></i>
-    <span>2021-04-17</span>
-
-    
-    
-
-    
-
-    
-    <i class="layui-icon layui-icon-tabs" style="font-size: 22px; vertical-align: 1px;margin-right:2px;"></i>
-    
-
-    
-        <a href="/tags/flow/">
-            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">flow</span>
-        </a>
-    
-        <a href="/tags/generative-model/">
-            <span class="layui-badge layui-bg-orange" style="vertical-align: 2px;">generative model</span>
-        </a>
-    
-    
-</h3>
-
-        <h3>
-        	
-				content 知乎real-NVP 里面的【RealNVP中的多尺度结构图示】是讲解的真清楚。
-以下是苏剑林关于 actnorm的评价
-所以，这一点是需要批评的，纯粹将旧概念换了个新名字罢了。当然，批评的是 OpenAI 在 Glow 中乱造新概念，而不是这个层的效果。缩放平移的加入，确实有助于更 ...
-             <a href="/post/2021/04/glow/"><span style="color:#01AAED">Read More</span></a>
-        </h3>
-    </blockquote>
-
-    
-
-    
-<div class="pager">
-    <div class="layui-btn-group">
-        <button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-            <a href="/tags/flow/"><i class="layui-icon">&#xe65a;</i></a>
-        </button>
-        
-        <button type="button" class="layui-btn layui-btn-disabled layui-btn-sm">
-            <i class="layui-icon">&#xe603;</i>
-        </button>
-        
-        
-        <button type="button" class="layui-btn layui-btn-disabled layui-btn-sm">
-            <i class="layui-icon">&#xe602;</i>
-        </button>
-        
-        <button type="button" class="layui-btn layui-btn-primary layui-btn-sm">
-            <a href="/tags/flow/"><i class="layui-icon">&#xe65b;</i></a>
-        </button>
-    </div>
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
 </div>
 
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E6%84%9F%E6%83%B3/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E6%9D%82%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> 搜索</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
 </div>
 
-</main>
-
-
-        </div><footer>
-    
-
-    <div class="layui-container">
-        <div class="layui-row">
-            <div class="layui-col-md4 layui-col-sm6 layui-col-xs6">
-                <h3> Related Sites </h3>
-            </div>
-        </div>
-        <div class="layui-row">
-            
-            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
-                <a href="/about/"><p class="footer-url">About</p></a>
-            </div>
-            
-            <div class="layui-col-md4 layui-col-sm6 layui-col-xs12">
-                <a href="/"><p class="footer-url">home</p></a>
-            </div>
-            
-        </div>
     </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-collapse">
+<div class="collection-title">
+    <h2 >flow
+    <small>标签</small>
+    </h2>
+</div>
+
+<div class="collection-title">
+  <h2 class="archive-year motion-element" id="archive-year-2021">2021</h2>
+</div>
+
+  <article class="post post-type-normal }}" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title">
+        <a class="post-title-link" href="/post/2021/04/glow/" itemprop="url">
+            <span itemprop="name">GLOW</span>
+        </a>
+      </h1>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2021-04-17"
+              content="04-17" >
+          04-17
+        </time>
+      </div>
+    </header>
+  </article>
+
+
+ </section>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+  
+
+
+
+<nav class="pagination">
     
     
-    <div class="layui-container">
-        <p class="copyright">Copyright © 2020–2021, all rights reserved.</p>
+        
+        
+          <span class="page-number current">1</span>
+        
+        
+    
+    
+</nav>
+
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="/img/author.jpg"
+        alt="Ming-Xian Lin" />
+    <p class="site-author-name" itemprop="name">Ming-Xian Lin</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        M.S. in ICT. UCAS.</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="/post/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">日志</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="/categories/">      
+         
+        <span class="site-state-item-count">0</span>
+        
+        <span class="site-state-item-name">分类</span>
+        
+        </a>
     </div>
 
+    <div class="site-state-item site-state-tags">
+        <a href="/tags/">
+         
+        <span class="site-state-item-count">5</span>
+        
+        <span class="site-state-item-name">标签</span>
+        </a>
+    </div>
+</nav>
+      
+<div class="feed-link motion-element">
+<a href="/tags/flow/index.xml" rel="alternate" type="application/rss+xml" target="_blank">
+    <i class="fa fa-rss"></i>
+    RSS 订阅
+</a>
+</div>
+
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/MaxwellLin3104/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/" target="_blank" title="知乎">
+            <i class="fa fa-fw fa-globe"></i>
+            知乎
+        </a>
+        </span>
+    
+</div>
+
+
+      
+
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2021</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Blogs of Ming-Xian</span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.82.0</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
@@ -218,12 +312,59 @@ layui.use('element', function(){
 
 <script>
     var local_imgs=document.getElementsByTagName('img');
-    for (var i = 0; i < local_imgs.length; i++) {
-        var src = local_imgs[i].getAttribute('src');
+    for (var i = 0; i < local_imgs.length-1; i++) {
+		var src = local_imgs[i].getAttribute('src');
         local_imgs[i].setAttribute('src',"../"+src);
     } 
 </script>
-</footer>
 
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span id="scrollpercent"><span>0</span>%</span>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/motion.js"></script>
+<script type="text/javascript" src="/js/affix.js"></script>
+<script type="text/javascript" src="/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+
+<script type="text/javascript" id="motion.page.archive">
+  $('.archive-year').velocity('transition.slideLeftIn');
+</script>
+
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
 </body>
 </html>
