@@ -29,6 +29,11 @@
   };
 </script>
 </head>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 <div class="container one-collumn sidebar-position-left page-home  ">
     <div class="headband"></div>
@@ -148,9 +153,18 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">阅读：</span>
-<span class="leancloud-visitors-count">2215 字 ~5分钟</span>
+<span class="leancloud-visitors-count">2800 字 ~6分钟</span>
 </span>
+	  &nbsp; | &nbsp;
+<span class="article-tag">
+            <i class="fa fa-eye"></i> 
+            <span id="busuanzi_container_page_pv">
+            <span id="busuanzi_value_page_pv">0</span>
+            </span>
+        </span>
+
       </div>
+
     </header>
     <div class="post-body" itemprop="articleBody">
     <h1 id="1-hugo-install">1. hugo install</h1>
@@ -314,11 +328,99 @@ cp themes/next/config.toml .	#使用模板自带的配置文件替换默认配�
 <h4 id="评论">评论</h4>
 <p>使用 Valine平台。参考<a href="https://valine.js.org/quickstart.html">Valine的官方指导手册</a>，先进行实名注册（包括支付宝认证与邮箱认证还需要绑定手机，感觉贼麻烦），然后创建方案（参考教程）。</p>
 <p><img src="https://i.loli.net/2019/06/21/5d0c997a60baa24436.jpg" alt="img"></p>
+<p>记住 <code>App ID </code>和 <code>App Key</code>。在hugo中安装 valine，如下：</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Install valine</span>
 npm install valine --save
-</code></pre></div><h3 id="10-new-reference">10. New Reference</h3>
+</code></pre></div><p>参考<a href="https://blog.csdn.net/AnonymKing/article/details/86370082">Hugo加入评论的功能</a>来配置Hugo下的valine设置。</p>
+<ol>
+<li>在 <code>config.toml</code> 中最底部加入以下代码（Valine基本配置）：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">  <span style="color:#75715e"># Valine.</span>
+  <span style="color:#75715e"># You can get your appid and appkey from https://leancloud.cn</span>
+  <span style="color:#75715e"># more info please open https://valine.js.org</span>
+  [<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">valine</span>]
+    <span style="color:#a6e22e">enable</span> = <span style="color:#66d9ef">true</span>
+    <span style="color:#a6e22e">appId</span> = <span style="color:#e6db74">&#39;Your appId&#39;</span>
+    <span style="color:#a6e22e">appKey</span> = <span style="color:#e6db74">&#39;Your appKey&#39;</span>
+    <span style="color:#a6e22e">notify</span> = <span style="color:#66d9ef">false</span>  <span style="color:#75715e"># mail notifier , https://github.com/xCss/Valine/wiki</span>
+    <span style="color:#a6e22e">verify</span> = <span style="color:#66d9ef">false</span> <span style="color:#75715e"># Verification code</span>
+    <span style="color:#a6e22e">avatar</span> = <span style="color:#e6db74">&#39;mm&#39;</span>
+    <span style="color:#a6e22e">placeholder</span> = <span style="color:#e6db74">&#39;说点什么吧...&#39;</span>
+    <span style="color:#a6e22e">visitor</span> = <span style="color:#66d9ef">true</span>
+</code></pre></div><ol start="2">
+<li>在 <code>layouts/partials/</code> 中创建 <code>comments.html</code> 文件，文件内容如下：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  <span style="color:#75715e">&lt;!-- valine --&gt;</span>
+  {{- if .Site.Params.valine.enable -}}
+  <span style="color:#75715e">&lt;!-- id 将作为查询条件 --&gt;</span>
+  
+  &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;vcomments&#34;</span>&gt;&lt;/<span style="color:#f92672">div</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//cdn1.lncld.net/static/js/3.0.4/av-min.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;//unpkg.com/valine/dist/Valine.min.js&#39;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+
+  &lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text/javascript&#34;</span>&gt;
+    <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">Valine</span>({
+        <span style="color:#a6e22e">el</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;#vcomments&#39;</span> ,
+        <span style="color:#a6e22e">appId</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appId }}&#39;</span>,
+        <span style="color:#a6e22e">appKey</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.appKey }}&#39;</span>,
+        <span style="color:#a6e22e">notify</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.notify }}&#39;</span>, 
+        <span style="color:#a6e22e">verify</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.verify }}&#39;</span>, 
+        <span style="color:#a6e22e">avatar</span><span style="color:#f92672">:</span><span style="color:#e6db74">&#39;{{ .Site.Params.valine.avatar }}&#39;</span>, 
+        <span style="color:#a6e22e">placeholder</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.placeholder }}&#39;</span>,
+        <span style="color:#a6e22e">visitor</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;{{ .Site.Params.valine.visitor }}&#39;</span>
+    });
+  &lt;/<span style="color:#f92672">script</span>&gt;
+  {{- end -}}
+
+</code></pre></div><ol start="3">
+<li>引入comments</li>
+</ol>
+<p>在 <code>layouts/_default/single.html</code> 中加入下面的代码，以引入 <code>comments.html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-comment&#34;</span>&gt;
+    <span style="color:#75715e">&lt;!-- 加入评论功能 --&gt;</span>
+    {{ partial &#34;comments.html&#34; . }}
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>然后重新启动<code>hugo</code>即可看到评论，评论的管理后台在 <code>valine</code>。</p>
+<p><img src="my_first_post.assets/image-20210421173207099.png" alt="image-20210421173207099"></p>
+<h3 id="访问统计">访问统计</h3>
+<ul>
+<li>评论数目</li>
+</ul>
+<p>在<code>/cactus/layouts/partials/head.html</code>文件中引入不蒜子js文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!-- 不蒜子 --&gt;</span>
+&lt;<span style="color:#f92672">script</span> <span style="color:#a6e22e">async</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&#34;</span>&gt;&lt;/<span style="color:#f92672">script</span>&gt;
+
+</code></pre></div><p>创建文件：<code>themes/next/layouts/partials/post/viewnum.html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&amp;nbsp; | &amp;nbsp;
+&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;article-tag&#34;</span>&gt;
+            &lt;<span style="color:#f92672">i</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;fa fa-eye&#34;</span>&gt;&lt;/<span style="color:#f92672">i</span>&gt;
+            &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;busuanzi_container_page_pv&#34;</span>&gt;
+              &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;busuanzi_value_page_pv&#34;</span>&gt;0&lt;/<span style="color:#f92672">span</span>&gt;
+            &lt;/<span style="color:#f92672">span</span>&gt;
+        &lt;/<span style="color:#f92672">span</span>&gt;
+</code></pre></div><p>在 <code>themes/next/layouts/_default/single.html</code>中添加这个<code>viewnum.html</code>文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;post-meta&#34;</span>&gt;
+      {{ partial &#34;post/date.html&#34; .}}
+      {{ partial &#34;post/category.html&#34; .}}
+      {{ partial &#34;post/readtime.html&#34; .}}
+      {{ partial &#34;post/viewnum.html&#34; .}}
+      &lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><p>就可以在文章里面看到一个小眼睛了。</p>
+<ul>
+<li>站点统计</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">div</span>&gt;
+	&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;busuanzi_container_site_pv&#34;</span>&gt;
+  pv：&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;busuanzi_value_site_pv&#34;</span>&gt;&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;busuanzi_value_site_pv&#34;</span>&gt;0&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt; 	&lt;/<span style="color:#f92672">span</span>&gt;
+    &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;busuanzi_container_site_uv&#34;</span>&gt;
+        uv: &lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;busuanzi_value_site_uv&#34;</span>&gt;&lt;<span style="color:#f92672">span</span> <span style="color:#a6e22e">id</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;busuanzi_value_site_uv&#34;</span>&gt;0&lt;/<span style="color:#f92672">span</span>&gt;&lt;/<span style="color:#f92672">span</span>&gt;
+    &lt;/<span style="color:#f92672">span</span>&gt;
+&lt;/<span style="color:#f92672">div</span>&gt;
+</code></pre></div><h4 id="搜索">搜索</h4>
+<h3 id="10-new-reference">10. New Reference</h3>
 <p><a href="https://lisenhui.cn/2020/10/02/make-next-theme-pithy.html">优化Hugo Next主题的过程</a></p>
 <p><a href="https://blog.csdn.net/AnonymKing/article/details/86370082">Hugo加入评论的功能</a></p>
+<p><a href="https://www.cnblogs.com/Chenjiabing/p/13878059.html">女朋友看了我的博客，说太LOW了，于是我搞了一天~</a></p>
     </div>
 	<div class="post-comment">
     
@@ -468,6 +570,13 @@ npm install valine --save
   2009 - 2021</span>
   <span class="with-love"><i class="fa fa-heart"></i></span>
   <span class="author" itemprop="copyrightHolder">Blogs of Ming-Xian</span>
+ <span class="with-love"><i class="fa fa-heart"></i></span> 
+  <span id="busuanzi_container_site_pv">
+  总访问量：<span id="busuanzi_value_site_pv"><span id="busuanzi_value_site_pv">0</span></span>   </span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span id="busuanzi_container_site_uv">
+  总访客数: <span id="busuanzi_value_site_uv"><span id="busuanzi_value_site_uv">0</span></span>
+    </span>
 </div>
 <div class="powered-by">
   Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.82.0</a>
@@ -476,6 +585,7 @@ npm install valine --save
   Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
   </a>
 </div>
+
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
