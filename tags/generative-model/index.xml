@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>generative model on Blogs of Ming-Xian</title>
-    <link>/tags/generative-model/</link>
+    <link>MaxwellLin3104.github.io/tags/generative-model/</link>
     <description>Recent content in generative model on Blogs of Ming-Xian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 17 Apr 2021 23:15:39 +0800</lastBuildDate><atom:link href="/tags/generative-model/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Apr 2021 23:15:39 +0800</lastBuildDate><atom:link href="MaxwellLin3104.github.io/tags/generative-model/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GLOW</title>
-      <link>/post/2021/04/glow/</link>
+      <link>MaxwellLin3104.github.io/post/2021/04/glow/</link>
       <pubDate>Sat, 17 Apr 2021 23:15:39 +0800</pubDate>
       
-      <guid>/post/2021/04/glow/</guid>
+      <guid>MaxwellLin3104.github.io/post/2021/04/glow/</guid>
       <description>content 知乎real-NVP 里面的【RealNVP中的多尺度结构图示】是讲解的真清楚。 以下是苏剑林关于 actnorm的评价 所以，这一点是需要批评的</description>
     </item>
     

@@ -12,13 +12,13 @@
     <meta property="og:image" content="/img/author.jpg"> 
     <meta name="title" content="Convolutional Occupancy Networks  - Blogs of Ming-Xian" />
     <meta name="description" content=" 博客 | Leanring | Python"> 
-    <link rel="shortcut icon" href="/img/favicon.ico" />
-    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
-    <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon.png" />
-    <link href="/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    <link href="/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-    <link href="/css/main.css" rel="stylesheet" type="text/css" />
-    <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="MaxwellLin3104.github.io/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="MaxwellLin3104.github.io/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="MaxwellLin3104.github.io/img/apple-touch-icon.png" />
+    <link href="MaxwellLin3104.github.io/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="MaxwellLin3104.github.io/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="MaxwellLin3104.github.io/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="MaxwellLin3104.github.io/css/syntax.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" id="hexo.configuration">
   var NexT = window.NexT || {};
   var CONFIG = {
@@ -42,7 +42,7 @@
       <div class="header-inner"> <div class="site-meta  custom-logo ">
 
   <div class="custom-logo-site-title">
-    <a href=""  class="brand" rel="start">
+    <a href="MaxwellLin3104.github.io"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">Blogs of Ming-Xian</span>
       <span class="logo-line-after"><i></i></span>
@@ -64,43 +64,43 @@
       
       
         <li class="menu-item ">
-          <a href="/" rel="section">
+          <a href="MaxwellLin3104.github.io/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="/categories/%E6%8A%80%E6%9C%AF/" rel="section">
+          <a href="MaxwellLin3104.github.io/categories/%E6%8A%80%E6%9C%AF/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="/categories/%E6%84%9F%E6%83%B3/" rel="section">
+          <a href="MaxwellLin3104.github.io/categories/%E6%84%9F%E6%83%B3/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/" rel="section">
+          <a href="MaxwellLin3104.github.io/categories/%E7%AC%94%E8%AE%B0/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="/categories/%E6%9D%82%E8%AE%B0/" rel="section">
+          <a href="MaxwellLin3104.github.io/categories/%E6%9D%82%E8%AE%B0/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="/post/" rel="section">
+          <a href="MaxwellLin3104.github.io/post/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
           </a>
         </li>
       
         <li class="menu-item ">
-          <a href="/about/" rel="section">
+          <a href="MaxwellLin3104.github.io/about/" rel="section">
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
           </a>
         </li>
@@ -132,7 +132,7 @@
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
       <h1 class="post-title" itemprop="name headline">
-        <a class="post-title-link" href="/post/2021/04/convolutional_occupancy_networks/" itemprop="url">
+        <a class="post-title-link" href="MaxwellLin3104.github.io/post/2021/04/convolutional_occupancy_networks/" itemprop="url">
         Convolutional Occupancy Networks 
         </a>
       </h1>
@@ -182,13 +182,13 @@
 <p>Notable exceptions are <a href="https://shunsukesaito.github.io/PIFu/">PIFu</a> and <a href="https://arxiv.org/abs/1905.10711">DISN</a> which use pixel-aligned implicit representations to reconstruct people in clothing or ShapeNet objects.</p>
 <p>这两篇用隐势场搞 SVR 的工作都关注到了<strong>局部细节</strong>上重建。</p>
 <h1 id="methods">Methods</h1>
-<h3 id="encoders">Encoders</h3>
+<h2 id="encoders">Encoders</h2>
 <p>文章提供了基于 3种投影方法与2种输入（一共6种）Encoder。</p>
-<h4 id="输入类型">输入类型</h4>
+<h3 id="输入类型">输入类型</h3>
 <p>支持两种类型的输入：点云（3k for single object 或者 10k for scene）和 体素($64^3$或者$32^3$)。</p>
 <p>对于点云，使用 浅层的PointNet来提取特征。</p>
 <p>对于体素，使用 3d 卷积提取特征。</p>
-<h4 id="投影方法">投影方法</h4>
+<h3 id="投影方法">投影方法</h3>
 <p>这块地方我觉得是整篇文章的重点。</p>
 <p><img src="Convolutional_Occupancy_Networks.assets/image-20210420232556868.png" alt="image-20210420232556868"></p>
 <p>这里以点云的输入为例子，参考图二：</p>
@@ -213,7 +213,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="decoders">Decoders</h3>
+<h2 id="decoders">Decoders</h2>
 <p>这里就用到了<strong>卷积</strong>。对于  one plane ，将 这个plane的上的特征 $H\times W\times d$ 使用一次基于 <code>hourglass</code>结构的<code>Unet</code>。我是觉得，其实 PointNet是可以获取 local 与 global 之间的关系，这里用 <code>卷积</code>，是将局部的一小撮点云之间的联系加深，在同一个局部的特征会被加强体现出来（通过Unet的卷积）。</p>
 <p>对于 three plane，操作是与 one plane 类似的，然后这3个Unet是共享参数的。对于 volume的话，就是使用 3d unet。</p>
 <p>在进行<code>卷积操作</code>以后，后面的步骤其实与 OccNet 是类似的。搞一个MLP，把 query point在上面算出来的特征与query point 作为输入，把这个 query point 是否 occupancy的概率作为输出。
@@ -221,7 +221,7 @@ $$
 f_{\theta}(P, \psi(P, x)) \rightarrow [0, 1]
 $$</p>
 <p>$x$是输入的点云提取的特征，$P$是query point。</p>
-<h3 id="training-and-inference">Training and Inference</h3>
+<h2 id="training-and-inference">Training and Inference</h2>
 <p>loss的话比较简单，就是将预测出来的2048个query point的occupancy值和gt计算交叉熵。</p>
 <p><img src="Convolutional_Occupancy_Networks.assets/image-20210420234543342.png" alt="image-20210420234543342"></p>
 <p>在训练好隐势场之后，为了获取 mesh，用了和 OccNet 一样的算法， MISE(对Marching Cube进行改进，加速mesh的生成速度和质量)。</p>
@@ -231,7 +231,7 @@ $$</p>
 <p><img src="Convolutional_Occupancy_Networks.assets/image-20210420234944827.png" alt="image-20210420234944827"></p>
 <p>对于体素输入的话，<code>one plane</code>的效果是坏掉了。</p>
 <p><img src="Convolutional_Occupancy_Networks.assets/image-20210420235033148.png" alt="image-20210420235033148"></p>
-<h3 id="scene-level">scene level</h3>
+<h2 id="scene-level">scene level</h2>
 <p>作者在文章中特别提到：</p>
 <p><strong>While high-resolution canonical plane features capture fine details they are prone to noise. Low-resolution volumetric features are instead more robust to noise, yet produce smoother surfaces</strong></p>
 <p>然后他就在场景的重建中【把 plane 和 volume 两种方法互补起来作为一种方法】，在ablation study中一起做比较。</p>
@@ -279,9 +279,9 @@ $$</p>
  
 <div class="post-tags">     
      
-    <a href="/tags/implicit-field" rel="tag" title="implicit field">#implicit field#</a>
+    <a href="MaxwellLin3104.github.io/tags/implicit-field" rel="tag" title="implicit field">#implicit field#</a>
     
-    <a href="/tags/convolution" rel="tag" title="convolution">#convolution#</a>
+    <a href="MaxwellLin3104.github.io/tags/convolution" rel="tag" title="convolution">#convolution#</a>
     
 </div>
 
@@ -294,7 +294,7 @@ $$</p>
 
     <div class="post-nav-prev post-nav-item">
     
-        <a href="/post/2021/04/glow/" rel="prev" title="GLOW">
+        <a href="MaxwellLin3104.github.io/post/2021/04/glow/" rel="prev" title="GLOW">
         GLOW <i class="fa fa-chevron-right"></i>
         </a>
     
@@ -329,7 +329,7 @@ $$</p>
     <section class="site-overview sidebar-panel  sidebar-panel-active ">
       <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image"
-        src="/img/author.jpg"
+        src="MaxwellLin3104.github.io/img/author.jpg"
         alt="Ming-Xian Lin" />
     <p class="site-author-name" itemprop="name">Ming-Xian Lin</p>
     <p class="site-description motion-element" itemprop="description"> 
@@ -337,13 +337,13 @@ $$</p>
 </div>
       <nav class="site-state motion-element">
     <div class="site-state-item site-state-posts">
-      <a href="/post/">
+      <a href="MaxwellLin3104.github.io/post/">
         <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">日志</span>
       </a>
     </div>
     <div class="site-state-item site-state-categories">    
-        <a href="/categories/">      
+        <a href="MaxwellLin3104.github.io/categories/">      
          
         <span class="site-state-item-count">0</span>
         
@@ -353,7 +353,7 @@ $$</p>
     </div>
 
     <div class="site-state-item site-state-tags">
-        <a href="/tags/">
+        <a href="MaxwellLin3104.github.io/tags/">
          
         <span class="site-state-item-count">5</span>
         
@@ -461,27 +461,27 @@ $$</p>
     window.Promise = null;
   }
 </script>
-<script type="text/javascript" src="/js/vendor/jquery/index.js?v=2.1.3"></script>
-<script type="text/javascript" src="/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
-<script type="text/javascript" src="/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-<script type="text/javascript" src="/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
-<script type="text/javascript" src="/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
-<script src="/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="MaxwellLin3104.github.io/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
-<script src="/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+<script src="MaxwellLin3104.github.io/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
 
-<script type="text/javascript" src="/js/utils.js"></script>
-<script type="text/javascript" src="/js/motion.js"></script>
-<script type="text/javascript" src="/js/affix.js"></script>
-<script type="text/javascript" src="/js/schemes/pisces.js"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/utils.js"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/motion.js"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/affix.js"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/schemes/pisces.js"></script>
 
-<script type="text/javascript" src="/js/scrollspy.js"></script>
-<script type="text/javascript" src="/js/post-details.js"></script>
-<script type="text/javascript" src="/js/toc.js"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/scrollspy.js"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/post-details.js"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/toc.js"></script>
 
-<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/bootstrap.js"></script>
 
-<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/javascript" src="MaxwellLin3104.github.io/js/search.js"></script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     extensions: ["tex2jax.js"],

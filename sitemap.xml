@@ -2,7 +2,7 @@
     
      <entry>
         <title>Convolutional Occupancy Networks </title>
-        <url>/post/2021/04/convolutional_occupancy_networks/</url>
+        <url>MaxwellLin3104.github.io/post/2021/04/convolutional_occupancy_networks/</url>
         <categories>
           
         </categories>
@@ -44,7 +44,7 @@ While high-resolution canonical plane features capture fine details they are pro
     
      <entry>
         <title>GLOW</title>
-        <url>/post/2021/04/glow/</url>
+        <url>MaxwellLin3104.github.io/post/2021/04/glow/</url>
         <categories>
           
         </categories>
@@ -67,39 +67,39 @@ Log-likelihood-based methods:
     
      <entry>
         <title>Hugo 搭建个人博客 —- My first post</title>
-        <url>/post/my_first_post/</url>
+        <url>MaxwellLin3104.github.io/post/my_first_post/</url>
         <categories>
           
         </categories>
         <tags>
           <tag>blog</tag>
         </tags>
-        <content type="html"> 1. hugo install 使用brew进行安装。
+        <content type="html"> hugo install 使用brew进行安装。
 环境：MacOS,Big Sur
-brew install hugo hugo version # 安装正确的话，可以正常查看 2. Themes 在安装好hugo之后，进入hugo官方主题模板选择心仪的模板。这里我选择了erblog.
+brew install hugo hugo version # 安装正确的话，可以正常查看 Themes 在安装好hugo之后，进入hugo官方主题模板选择心仪的模板。这里我选择了erblog.
 为blog创建一个文件夹： xxx-blog（名字随意）。
 cd xxx-blog mkdir themes git clone https://github.com/ertuil/erblog themes/erblog cp themes/erblog/exampleSite/config.toml .	#使用模板自带的配置文件替换默认配置文件 对config.toml进行编辑
 DefaultContentLanguage = &amp;#34;zh-cn&amp;#34; # 修改为中文 请到Erblog 的Configuration中查看更多的参数设置。
 e.g. author, bio,
-3. 创建blog cd xxx-blog hugo new post/my-first-post.md 在此基础上编辑新建的文章，添加内容并保存。
+创建blog cd xxx-blog hugo new post/my-first-post.md 在此基础上编辑新建的文章，添加内容并保存。
 加入 tag 标签 在标头加入：
-tags: blog 4. 公式的显示 为了加速渲染，只在每篇文章的标头加
+tags: blog 公式的显示 为了加速渲染，只在每篇文章的标头加
 math: true 如果为了方便，可以在config文件中加
 math=true 显示的效果 这是行内公式$12_{ab}^{12bv}$行内公式。
 这是行间公式 $$ abc_{123}^{abv_{ab}} $$ 这是特殊符号测试：!@#%^&amp;amp;*()_&#43;${ } () 你好[(hhh)]123 \(123\)hhhhh
 做法 参考MathJax渲染数学公式，这篇blog中在主题文件夹（\themes\xxxxx\layouts\partials\footer.html）中，在&amp;quot;&amp;lt;footer&amp;gt;&amp;ldquo;中添加下面代码。
 &amp;lt;script type=&amp;#34;text/x-mathjax-config&amp;#34;&amp;gt; MathJax.Hub.Config({ tex2jax: { inlineMath: [[&amp;#39;$&amp;#39;,&amp;#39;$&amp;#39;], [&amp;#39;\\(&amp;#39;,&amp;#39;\\)&amp;#39;]], displayMath: [[&amp;#39;$$&amp;#39;,&amp;#39;$$&amp;#39;], [&amp;#39;\[&amp;#39;,&amp;#39;\]&amp;#39;]], processEscapes: true, processEnvironments: true, skipTags: [&amp;#39;script&amp;#39;, &amp;#39;noscript&amp;#39;, &amp;#39;style&amp;#39;, &amp;#39;textarea&amp;#39;, &amp;#39;pre&amp;#39;], TeX: { equationNumbers: { autoNumber: &amp;#34;AMS&amp;#34; }, extensions: [&amp;#34;AMSmath.js&amp;#34;, &amp;#34;AMSsymbols.js&amp;#34;] } } }); &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; async src=&amp;#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 但是上面这种做法会导致“[”和“]”被识别为公式而无法输出。因此，这里选择了比较不常见的组合来代替，代码如下：
-&amp;lt;script type=&amp;#34;text/x-mathjax-config&amp;#34;&amp;gt; MathJax.Hub.Config({ tex2jax: { inlineMath: [[&amp;#39;$&amp;#39;,&amp;#39;$&amp;#39;], [&amp;#39;~&#43;(&amp;#39;,&amp;#39;~&#43;)&amp;#39;]], displayMath: [[&amp;#39;$$&amp;#39;,&amp;#39;$$&amp;#39;], [&amp;#39;~&#43;[&amp;#39;,&amp;#39;~&#43;]&amp;#39;]], processEscapes: true, processEnvironments: true, skipTags: [&amp;#39;script&amp;#39;, &amp;#39;noscript&amp;#39;, &amp;#39;style&amp;#39;, &amp;#39;textarea&amp;#39;, &amp;#39;pre&amp;#39;], TeX: { equationNumbers: { autoNumber: &amp;#34;AMS&amp;#34; }, extensions: [&amp;#34;AMSmath.js&amp;#34;, &amp;#34;AMSsymbols.js&amp;#34;] } } }); &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; async src=&amp;#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 5. 图片的显示 显示效果 测试图片1
+&amp;lt;script type=&amp;#34;text/x-mathjax-config&amp;#34;&amp;gt; MathJax.Hub.Config({ tex2jax: { inlineMath: [[&amp;#39;$&amp;#39;,&amp;#39;$&amp;#39;], [&amp;#39;~&#43;(&amp;#39;,&amp;#39;~&#43;)&amp;#39;]], displayMath: [[&amp;#39;$$&amp;#39;,&amp;#39;$$&amp;#39;], [&amp;#39;~&#43;[&amp;#39;,&amp;#39;~&#43;]&amp;#39;]], processEscapes: true, processEnvironments: true, skipTags: [&amp;#39;script&amp;#39;, &amp;#39;noscript&amp;#39;, &amp;#39;style&amp;#39;, &amp;#39;textarea&amp;#39;, &amp;#39;pre&amp;#39;], TeX: { equationNumbers: { autoNumber: &amp;#34;AMS&amp;#34; }, extensions: [&amp;#34;AMSmath.js&amp;#34;, &amp;#34;AMSsymbols.js&amp;#34;] } } }); &amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34; async src=&amp;#34;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 图片的显示 显示效果 测试图片1
 测试图片2
 做法 由于我在 typora中图片存储的路径是”./${filename}.assets“，这是一个相对路径。hugo将md文件翻译成html文件的时候，不会改变这个路径，但是html文件与”./${filename}.assets“在public文件中不再是在同一个目录下了，这个时候html文件中的相对路径需要添加&amp;rdquo;../&amp;ldquo;的前缀。因此，需要在写一个与处理公式类似的脚本。在主题文件夹（\themes\erblog\layouts\partials\footer.html）中，在&amp;rdquo;&amp;lt;footer&amp;gt;&amp;ldquo;中添加下面代码，遍历所有的image，给src属性添加&amp;rdquo;../&amp;ldquo;前缀。由于对Javascript不熟悉，参考了用getElementsByTagName遍历HTML DOM元素 这篇博客以及JS怎么更换img中src路径的内容来遍历所有image。
 &amp;lt;script&amp;gt; var local_imgs=document.getElementsByTagName(&amp;#39;img&amp;#39;); for (var i = 0; i &amp;lt; local_imgs.length; i&#43;&#43;) { var src = local_imgs[i].getAttribute(&amp;#39;src&amp;#39;); local_imgs[i].setAttribute(&amp;#39;src&amp;#39;,&amp;#34;../&amp;#34;&#43;src); } &amp;lt;/script&amp;gt; 这么做还有一个好处，那就是当我把md文件移动到另一个文件夹，我只需要将对应的”./${filename}.assets“移动到和md一级的目录，本地的md能够正常显示，同时翻译后的html文件也能正常显示。
-6. 生成以及上传 生成 在xxx-blog目录下，先使用hugo进行编译，
+生成以及上传 生成 在xxx-blog目录下，先使用hugo进行编译，
 hugo 此时xxx-blog目录下会多出一个 public 文件夹来。这便是 Hugo 生成的网站。
 hugo server -D # 在本地查看 部署到github.io 如果是第一次执行，需要
 cd public git init git remote add origin https://github.com/[Github 用户名]/[Github 用户名].github.io.git git add . git commit -m &amp;#34;[介绍，随便写点什么，比如日期]&amp;#34; git push -u origin master 如果不是第一次执行，如下：
-git add . git commit -m &amp;#34;[介绍，随便写点什么，比如日期]&amp;#34; git push -u origin master 7. Ending 至此，使用 hugo 搭建部署在 github.io的个人博客的流程介绍完毕。
+git add . git commit -m &amp;#34;[介绍，随便写点什么，比如日期]&amp;#34; git push -u origin master Ending 至此，使用 hugo 搭建部署在 github.io的个人博客的流程介绍完毕。
 第一次写blog，对这个搭建过程进行记录并且以此练练手。
-8. Reference  MathJax渲染数学公式 git修改/添加/删除远程仓库 用getElementsByTagName遍历HTML DOM元素 JS怎么更换img中src路径 用hugo搭建属于自己的个人博客(mac环境) 如何利用 GitHub Pages 和 Hugo 轻松搭建个人博客？  9. 更新 由于觉得之前的主题功能不够，使用了 hexo的 Next的主题。这里用了xtfly的hugo-theme-next 主题。
+Reference  MathJax渲染数学公式 git修改/添加/删除远程仓库 用getElementsByTagName遍历HTML DOM元素 JS怎么更换img中src路径 用hugo搭建属于自己的个人博客(mac环境) 如何利用 GitHub Pages 和 Hugo 轻松搭建个人博客？  更新 由于觉得之前的主题功能不够，使用了 hexo的 Next的主题。这里用了xtfly的hugo-theme-next 主题。
 mkdir themes git clone https://github.com/xtfly/hugo-theme-next themes/next cp themes/next/config.toml .	#使用模板自带的配置文件替换默认配置文件 之后进入config.toml根据自己的需求修改个人信息。
 有一些图片和公式的不兼容，执行了与之前类似的操作，如下：
 每篇blog的时间显示在我这里是错误的，于是我在config.toml把时间的几个format注释掉了，然后就正常了。
@@ -109,14 +109,17 @@ mkdir themes git clone https://github.com/xtfly/hugo-theme-next themes/next cp t
 # Install valine npm install valine --save 参考Hugo加入评论的功能来配置Hugo下的valine设置。
  在 config.toml 中最底部加入以下代码（Valine基本配置）：  # Valine. # You can get your appid and appkey from https://leancloud.cn # more info please open https://valine.js.org [params.valine] enable = true appId = &amp;#39;Your appId&amp;#39; appKey = &amp;#39;Your appKey&amp;#39; notify = false # mail notifier , https://github.com/xCss/Valine/wiki verify = false # Verification code avatar = &amp;#39;mm&amp;#39; placeholder = &amp;#39;说点什么吧...&amp;#39; visitor = true 在 layouts/partials/ 中创建 comments.html 文件，文件内容如下：  &amp;lt;!-- valine --&amp;gt; {{- if .Site.Params.valine.enable -}} &amp;lt;!-- id 将作为查询条件 --&amp;gt; &amp;lt;div id=&amp;#34;vcomments&amp;#34;&amp;gt;&amp;lt;/div&amp;gt; &amp;lt;script src=&amp;#34;//cdn1.lncld.net/static/js/3.0.4/av-min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script src=&amp;#39;//unpkg.com/valine/dist/Valine.min.js&amp;#39;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; new Valine({ el: &amp;#39;#vcomments&amp;#39; , appId: &amp;#39;{{ .Site.Params.valine.appId }}&amp;#39;, appKey: &amp;#39;{{ .Site.Params.valine.appKey }}&amp;#39;, notify: &amp;#39;{{ .Site.Params.valine.notify }}&amp;#39;, verify: &amp;#39;{{ .Site.Params.valine.verify }}&amp;#39;, avatar:&amp;#39;{{ .Site.Params.valine.avatar }}&amp;#39;, placeholder: &amp;#39;{{ .Site.Params.valine.placeholder }}&amp;#39;, visitor: &amp;#39;{{ .Site.Params.valine.visitor }}&amp;#39; }); &amp;lt;/script&amp;gt; {{- end -}} 引入comments  在 layouts/_default/single.html 中加入下面的代码，以引入 comments.html
 &amp;lt;div class=&amp;#34;post-comment&amp;#34;&amp;gt; &amp;lt;!-- 加入评论功能 --&amp;gt; {{ partial &amp;#34;comments.html&amp;#34; . }} &amp;lt;/div&amp;gt; 然后重新启动hugo即可看到评论，评论的管理后台在 valine。
-访问统计  评论数目  在/cactus/layouts/partials/head.html文件中引入不蒜子js文件
+访问统计  评论数目  在themes/next/layouts/partials/head.html文件中引入不蒜子js文件
 &amp;lt;!-- 不蒜子 --&amp;gt; &amp;lt;script async src=&amp;#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; 创建文件：themes/next/layouts/partials/post/viewnum.html
 &amp;amp;nbsp; | &amp;amp;nbsp; &amp;lt;span class=&amp;#34;article-tag&amp;#34;&amp;gt; &amp;lt;i class=&amp;#34;fa fa-eye&amp;#34;&amp;gt;&amp;lt;/i&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_container_page_pv&amp;#34;&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_value_page_pv&amp;#34;&amp;gt;0&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; 在 themes/next/layouts/_default/single.html中添加这个viewnum.html文件
 &amp;lt;div class=&amp;#34;post-meta&amp;#34;&amp;gt; {{ partial &amp;#34;post/date.html&amp;#34; .}} {{ partial &amp;#34;post/category.html&amp;#34; .}} {{ partial &amp;#34;post/readtime.html&amp;#34; .}} {{ partial &amp;#34;post/viewnum.html&amp;#34; .}} &amp;lt;/div&amp;gt; 就可以在文章里面看到一个小眼睛了。
  站点统计  在 themes/next/layouts/partials/footer.html中的第一个**&amp;lt;div&amp;gt;**添加如下代码：
 &amp;lt;span class=&amp;#34;with-love&amp;#34;&amp;gt;&amp;lt;i class=&amp;#34;fa fa-heart&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_container_site_pv&amp;#34;&amp;gt; 总访问量：&amp;lt;span id=&amp;#34;busuanzi_value_site_pv&amp;#34;&amp;gt;&amp;lt;span id=&amp;#34;busuanzi_value_site_pv&amp;#34;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; &amp;lt;span class=&amp;#34;with-love&amp;#34;&amp;gt;&amp;lt;i class=&amp;#34;fa fa-heart&amp;#34;&amp;gt;&amp;lt;/i&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;span id=&amp;#34;busuanzi_container_site_uv&amp;#34;&amp;gt; 总访客数: &amp;lt;span id=&amp;#34;busuanzi_value_site_uv&amp;#34;&amp;gt;&amp;lt;span id=&amp;#34;busuanzi_value_site_uv&amp;#34;&amp;gt;0&amp;lt;/span&amp;gt;&amp;lt;/span&amp;gt; &amp;lt;/span&amp;gt; 效果如下：
-为了解决错误的统计量，需要在themes/next/layouts/partials/head.html中添加如下代码：
-&amp;lt;!-- 不蒜子 --&amp;gt; &amp;lt;script async src=&amp;#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;meta name=&amp;#34;referrer&amp;#34; content=&amp;#34;no-referrer-when-downgrade&amp;#34;&amp;gt; 搜索 10. New Reference 优化Hugo Next主题的过程
+为了解决错误的统计量，需要添加如下一行代码：
+&amp;lt;meta name=&amp;#34;referrer&amp;#34; content=&amp;#34;no-referrer-when-downgrade&amp;#34;&amp;gt; 在之前themes/next/layouts/partials/head.html中
+&amp;lt;!-- 不蒜子 --&amp;gt; &amp;lt;script async src=&amp;#34;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;meta name=&amp;#34;referrer&amp;#34; content=&amp;#34;no-referrer-when-downgrade&amp;#34;&amp;gt; 搜索 这个魔改的 next主题自带了 local search，不过我试了一下，中文的话得要2个字起步好像。
+补一句：至于 hexo中的search，可以参考下面的链接。
+New Reference 优化Hugo Next主题的过程
 Hugo加入评论的功能
 女朋友看了我的博客，说太LOW了，于是我搞了一天~
 人人都爱小雀斑&amp;rsquo;s blog
