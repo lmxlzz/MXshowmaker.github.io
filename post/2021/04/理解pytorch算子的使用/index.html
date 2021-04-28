@@ -153,7 +153,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">阅读：</span>
-<span class="leancloud-visitors-count">994 字 ~2分钟</span>
+<span class="leancloud-visitors-count">1039 字 ~3分钟</span>
 </span>
 	  &nbsp; | &nbsp;
 <span class="article-tag">
@@ -167,7 +167,7 @@
 
     </header>
     <div class="post-body" itemprop="articleBody">
-    <h1 id="span-idjump_gathertorchgatherspan"><!-- raw HTML omitted -->torch.gather<!-- raw HTML omitted --></h1>
+    <h1 id="torchgather">torch.gather</h1>
 <p><a href="https://pytorch.org/docs/stable/generated/torch.gather.html">官方文档</a></p>
 <p>API接口：<code>torch.gather</code>(<em>input</em>, <em>dim</em>, <em>index</em>, <em>*</em>, <em>sparse_grad=False</em>, <em>out=None</em>) → Tensor</p>
 <p>按照<code>index</code>，在<code>dim</code>维度中取出 <code>input</code>的值到<code>out</code>上。这里<code>out</code>的shape和<code>index</code>的shape是一模一样。</p>
@@ -234,7 +234,7 @@ tensor([[ <span style="color:#ae81ff">0.2747</span>,  <span style="color:#ae81ff
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">self[index[i][j][k]][j][k] <span style="color:#f92672">=</span> src[i][j][k]  <span style="color:#75715e"># if dim == 0</span>
 self[i][index[i][j][k]][k] <span style="color:#f92672">=</span> src[i][j][k]  <span style="color:#75715e"># if dim == 1</span>
 self[i][j][index[i][j][k]] <span style="color:#f92672">=</span> src[i][j][k]  <span style="color:#75715e"># if dim == 2</span>
-</code></pre></div><p>与<a href="#jump_gather">torch.gather</a>非常的类似。</p>
+</code></pre></div><p>与<a href="#torch.gather">torch.gather</a>非常的类似。</p>
 <p>举个例子：<a href="https://blog.csdn.net/guofei_fly/article/details/104308528">【Pytorch】scatter函数详解</a></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">&gt;&gt;&gt;</span> a
 tensor([[<span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">1.</span>, <span style="color:#ae81ff">2.</span>, <span style="color:#ae81ff">3.</span>, <span style="color:#ae81ff">4.</span>],
@@ -266,6 +266,7 @@ tensor([[<span style="color:#ae81ff">0.</span>, <span style="color:#ae81ff">6.</
 <span style="color:#75715e"># 对于src[1][0]，会被分配到 self[index[1][0]][0] 即 self[2][0]</span>
 <span style="color:#75715e"># 对于src[0][1]，会被分配到 self[index[0][1]][1] 即 self[2][1]		</span>
 
+<span style="color:#75715e"># dim代表的含义就是当前的src[i][j]被分配到所指定的dim中第index的位置。</span>
 </code></pre></div>
     </div>
 	<div class="post-comment">
