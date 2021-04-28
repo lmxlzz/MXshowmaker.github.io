@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Blogs of Ming-Xian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 20 Apr 2021 22:35:42 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Apr 2021 01:43:40 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>理解pytorch算子的使用</title>
+      <link>/post/2021/04/%E7%90%86%E8%A7%A3pytorch%E7%AE%97%E5%AD%90%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 29 Apr 2021 01:43:40 +0800</pubDate>
+      
+      <guid>/post/2021/04/%E7%90%86%E8%A7%A3pytorch%E7%AE%97%E5%AD%90%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>torch.gather 官方文档 API接口：torch.gather(input, dim, index, *, sparse_grad=False, out=None) → Tensor 按照index，在dim维度中取出 input的值到out上。这里o</description>
+    </item>
+    
     <item>
       <title>Convolutional Occupancy Networks </title>
       <link>/post/2021/04/convolutional_occupancy_networks/</link>
@@ -22,7 +31,7 @@
       <pubDate>Sat, 17 Apr 2021 23:15:39 +0800</pubDate>
       
       <guid>/post/2021/04/glow/</guid>
-      <description>content 知乎real-NVP 里面的【RealNVP中的多尺度结构图示】是讲解的真清楚。 以下是苏剑林关于 actnorm的评价 所以，这一点是需要批评的</description>
+      <description>背景知识 判别模型 vs 生成模型 数值计算 &amp;amp; 采样计算 见过最直观的关于vae的解释变分自编码器介绍、推导及实现 苏剑林 content 知乎real-NVP 里面的【Re</description>
     </item>
     
     <item>
