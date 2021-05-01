@@ -1,6 +1,34 @@
 <search>
     
      <entry>
+        <title>A First Course in Probability - part 1</title>
+        <url>/post/2021/04/a_first_course_in_probability_9th_1/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          <tag>math</tag><tag>probability</tag>
+        </tags>
+        <content type="html"> 前言 由于对于概率论的基础存在需求，这里重新回顾一下之前所学的概率论。使用《概率论基础教程》一书，这里记录一下阅读笔记和一些个人的思考。
+part 1 记录前三章的内容。
+Combinatorial Analysis The basic principle of counting Suppose that two experiments are to be performed. Then if experiment 1 can result in any one of m possible outcomes and if, for each outcome of experiment 1, there are n possible outcomes of experiment 2, then together there are mn possible outcomes of the two experiments.
+需要注意的是，这里要求实验1的每个结果都需有n个实验2的结果。
+这里可以把两个实验推广到$r$个实验。
+Permutations   给$n$个distinguishable的物体进行排序，一共有 $n!$ (read as “n factorial”)种结果。
+  对于 certain of the objects are indistinguishable 的情况，需要除掉在各自类内排序的数目。
+ 例子：     Combinations 组合：把$n$个objects划分成$r$组。组合对于每个组内的object不计较顺序。
+ 例子：从 abcde中取出3个。   组合中的公式 The binomial theorem 这个可以用1. 数值法来证明。2. 使用组合法来证明：从n个(x&#43;y)中取出k个x已经n-k个y。
+Multinomial Coefficients 将n个objects分成r组，这r组所有元素数目之和是n。这个与组合数的区别在于，组合数是从n个objects中抽出部分objects，而多项式系数则是对n个objects进行划分。
+这个记做：
+例子：
+ 第一类例子   这两个例子分成的组都是distinguishable。   第二类例子   这个例子中，分的两个组是indistinguishable，因此需要除以这两个组的排列数。    一个很有意思的例子：
+对于第二问，可以把问题转成，n个位置的下标表示各自的排名。现在给n个人安排排名，那么有$n!$种结果。
+The Number of Integer Solutions of Equations 正整数方程解。对于方程$x_1&#43;x_2&#43;…&#43;x_r = n$，这里$ x_i &amp;gt;0$可以看作有n个objects，在n个objects之间(n-1)个位置插入板子，把n个objects分成r组。那么就是在(n-1)个位置中，选择(r-1)个位置来插入板子。如图：
+例子：
+- ![image-20210501123250586](A_First_Course_in_Probability_9th_1.assets/image-20210501123250586.png) - 这个例子的第一问，里面$x_i \geq 0$，而上面的公式是要求 $x_i &amp;gt;0$即正数，那么我们可以使用换元法，把$x_i$转换成正整数。 - 对于第二问，可以无中生有，构造成 $x_5$用来表示没有被投资的资金。  Summary  The basic principle of counting  对于每个实验一的结果，在实验二中都有相同的实验结果数目。   排列  区分 distinguishable 和 indistinguishable   组合  从 n 个 objects 中取出 r 个   多项式系数  区别于 组合数， 是把n个 objects 划分为 r 组   正整数方程解的数目  挡板法 自然数或者负数转正整数    Axioms of Probability </content>
+    </entry>
+    
+     <entry>
         <title>理解pytorch算子的使用</title>
         <url>/post/2021/04/%E7%90%86%E8%A7%A3pytorch%E7%AE%97%E5%AD%90%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
         <categories>

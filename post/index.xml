@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Blogs of Ming-Xian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Apr 2021 01:43:40 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Apr 2021 02:40:23 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A First Course in Probability - part 1</title>
+      <link>/post/2021/04/a_first_course_in_probability_9th_1/</link>
+      <pubDate>Thu, 29 Apr 2021 02:40:23 +0800</pubDate>
+      
+      <guid>/post/2021/04/a_first_course_in_probability_9th_1/</guid>
+      <description>前言 由于对于概率论的基础存在需求，这里重新回顾一下之前所学的概率论。使用《概率论基础教程》一书，这里记录一下阅读笔记和一些个人的思考。 part 1 记</description>
+    </item>
+    
     <item>
       <title>理解pytorch算子的使用</title>
       <link>/post/2021/04/%E7%90%86%E8%A7%A3pytorch%E7%AE%97%E5%AD%90%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
