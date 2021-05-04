@@ -40,7 +40,10 @@ Axioms of Probability 频率派：事件发生频率的极限
 例如，欧拉装信封问题。
 Summary P(A)可以理解为长期相对频率或者确信程度的度量。
 其它的部分感觉都不会太令人困惑。
-Conditional Probability and Independence </content>
+Conditional Probability and Independence 条件概率定义 E occurs given that F has occurred: $P(E|F)$
+sample space 从原来的 S 缩减成 F。
+乘法规则 贝叶斯公式&amp;amp;全概率公式  例子  在第二部分的例子中，可以看成，【在发生事故的样本空间中，容易出事故的贡献占比多少】。
+一个用贝叶斯解释性很好的例子 </content>
     </entry>
     
      <entry>
