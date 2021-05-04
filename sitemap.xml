@@ -21,11 +21,19 @@ Permutations   给$n$个distinguishable的物体进行排序，一共有 $n!$ (r
 Multinomial Coefficients 将n个objects分成r组，这r组所有元素数目之和是n。这个与组合数的区别在于，组合数是从n个objects中抽出部分objects，而多项式系数则是对n个objects进行划分。
 这个记做：
 例子：
- 第一类例子   这两个例子分成的组都是distinguishable。   第二类例子   这个例子中，分的两个组是indistinguishable，因此需要除以这两个组的排列数。    一个很有意思的例子：
+ 第一类例子   这两个例子分成的组都是distinguishable。     第二类例子   这个例子中，分的两个组是indistinguishable，因此需要除以这两个组的排列数。      一个很有意思的例子：
 对于第二问，可以把问题转成，n个位置的下标表示各自的排名。现在给n个人安排排名，那么有$n!$种结果。
 The Number of Integer Solutions of Equations 正整数方程解。对于方程$x_1&#43;x_2&#43;…&#43;x_r = n$，这里$ x_i &amp;gt;0$可以看作有n个objects，在n个objects之间(n-1)个位置插入板子，把n个objects分成r组。那么就是在(n-1)个位置中，选择(r-1)个位置来插入板子。如图：
 例子：
-- 问题：![image-20210501123250586](A_First_Course_in_Probability_9th_1.assets/image-20210501123250586.png) - 这个例子的第一问，里面$x_i \geq 0$，而上面的公式是要求 $x_i &amp;gt;0$即正数，那么我们可以使用换元法，把$x_i$转换成正整数。 - 对于第二问，可以无中生有，构造成 $x_5$用来表示没有被投资的资金。  Summary  The basic principle of counting  对于每个实验一的结果，在实验二中都有相同的实验结果数目。   排列  区分 distinguishable 和 indistinguishable   组合  从 n 个 objects 中取出 r 个   多项式系数  区别于 组合数， 是把n个 objects 划分为 r 组   正整数方程解的数目  挡板法 自然数或者负数转正整数    Axioms of Probability </content>
+- 问题：![image-20210501123250586](A_First_Course_in_Probability_9th_1.assets/image-20210501123250586.png) - 这个例子的第一问，里面$x_i \geq 0$，而上面的公式是要求 $x_i &amp;gt;0$即正数，那么我们可以使用换元法，把$x_i$转换成正整数。 - 对于第二问，可以无中生有，构造成 $x_5$用来表示没有被投资的资金。  Summary  The basic principle of counting  对于每个实验一的结果，在实验二中都有相同的实验结果数目。   排列  区分 distinguishable 和 indistinguishable   组合  从 n 个 objects 中取出 r 个   多项式系数  区别于 组合数， 是把n个 objects 划分为 r 组   正整数方程解的数目  挡板法 自然数或者负数转正整数    Axioms of Probability Sample Space and Events 事件：Sample Space 中符合某些性质的元素构成的子集。
+  某个事件的概率，理解起来就是随机抽，抽出的结果符合xx性质占所有可能的比例有多大。
+  在子集定义的基础上，自然而然的可以做事件的交集和并集。
+  运算：符合代数中的集合运算。
+- 交换律 - 结合律 - 分配律  DeMrogan&amp;rsquo;s Laws
+Axioms of Probability 频率派：事件发生频率的极限
+我们认为频率趋于某个常数极限值，这个作为假设的话非常的复杂。
+采用现代概率论公理化方法，先假设一些更简单的关于概率的公理，然后去证明频率在某种意义下趋于一个常数极限值是更为合理的操作。
+概率的三个公理 </content>
     </entry>
     
      <entry>
