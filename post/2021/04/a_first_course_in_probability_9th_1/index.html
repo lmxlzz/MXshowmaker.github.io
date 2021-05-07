@@ -153,7 +153,7 @@
     <i class="fa fa-eye"></i>
 </span>
 <span class="post-meta-item-text">阅读：</span>
-<span class="leancloud-visitors-count">1632 字 ~4分钟</span>
+<span class="leancloud-visitors-count">1908 字 ~4分钟</span>
 </span>
 	  &nbsp; | &nbsp;
 <span class="article-tag">
@@ -319,6 +319,20 @@
 <p>在第二部分的例子中，可以看成，【在发生事故的样本空间中，容易出事故的贡献占比多少】。</p>
 <h4 id="一个用贝叶斯解释性很好的例子">一个用贝叶斯解释性很好的例子</h4>
 <p><img src="A_First_Course_in_Probability_9th_1.assets/image-20210504221203993.png" alt="image-20210504221203993"></p>
+<h4 id="关于贝叶斯中先验与后验的关系">关于贝叶斯中先验与后验的关系</h4>
+<p><img src="A_First_Course_in_Probability_9th_1.assets/image-20210506215927268.png" alt="image-20210506215927268"></p>
+<h4 id="优势比">优势比</h4>
+<p><img src="A_First_Course_in_Probability_9th_1.assets/image-20210507120254080.png" alt="image-20210507120254080"></p>
+<h4 id="一个我觉得从不同角度理解有不同结论的例子">一个我觉得从不同角度理解有不同结论的例子</h4>
+<p><img src="A_First_Course_in_Probability_9th_1.assets/image-20210507122304531.png" alt="image-20210507122304531"></p>
+<p>这里是计算在给定R之后，RB的概率。</p>
+<p>贝叶斯公式中：
+$$
+P(F_j|E) = \frac{P(EF_j)}{P(E)}=\frac{P(E|F_j)P(E)}{\sum_{i=1}^{n}P(E|F_i)P(E)}
+$$
+其中，$P(E|F_j)$表示类条件概率。</p>
+<p>是1/3而不是1/2的关键在于这里的<strong>类条件概率</strong>。</p>
+<p>现在知道的证据是一个面为R，我之前理所当然的认为在已知一个面是R，剩下就两种可能，不是R就是B，就是在两张牌RR和RB中二选一。但是，这里犯下一个很基本的错误，即RR与RB在给定R这个条件之后，出现的概率不再是简单的等概率事件了！在没有给定R之前，三张牌是等概率的1/3。在给定R之后，RR与RB出现的概率是需要乘上类条件概率。</p>
 
     </div>
 	<div class="post-comment">
