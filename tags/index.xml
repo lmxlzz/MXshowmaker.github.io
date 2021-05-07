@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Blogs of Ming-Xian</title>
+    <title>Tags on Blogs of Mingxian</title>
     <link>/tags/</link>
-    <description>Recent content in Tags on Blogs of Ming-Xian</description>
+    <description>Recent content in Tags on Blogs of Mingxian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Apr 2021 02:40:23 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 May 2021 15:12:05 +0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>math</title>
       <link>/tags/math/</link>
-      <pubDate>Thu, 29 Apr 2021 02:40:23 +0800</pubDate>
+      <pubDate>Fri, 07 May 2021 15:12:05 +0800</pubDate>
       
       <guid>/tags/math/</guid>
       <description></description>
@@ -19,7 +19,7 @@
     <item>
       <title>probability</title>
       <link>/tags/probability/</link>
-      <pubDate>Thu, 29 Apr 2021 02:40:23 +0800</pubDate>
+      <pubDate>Fri, 07 May 2021 15:12:05 +0800</pubDate>
       
       <guid>/tags/probability/</guid>
       <description></description>

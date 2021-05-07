@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pytorch on Blogs of Ming-Xian</title>
+    <title>pytorch on Blogs of Mingxian</title>
     <link>/tags/pytorch/</link>
-    <description>Recent content in pytorch on Blogs of Ming-Xian</description>
+    <description>Recent content in pytorch on Blogs of Mingxian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Thu, 29 Apr 2021 01:43:40 +0800</lastBuildDate><atom:link href="/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
