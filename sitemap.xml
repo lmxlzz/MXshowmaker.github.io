@@ -1,7 +1,151 @@
 <search>
     
      <entry>
-        <title>A First Course in Probability - part 1</title>
+        <title>Intro2python_part4</title>
+        <url>/post/2021/07/intro2python_part4/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          <tag>python</tag>
+        </tags>
+        <content type="html"> 捕获异常 try: pass except 错误类型1： pass except (错误类型2， 错误类型3)： pass except Exception as result: print(&amp;#39;未知错误 %s&amp;#39; %(result, )) else: # 没有异常才会被执行。 pass finally: # 不管对错，对会被执行。 pass 主动抛出异常 raise def input_pwd(): pwd = input(&amp;#39;请输入密码： &amp;#39;) if len(pwd) &amp;gt;= 8: return pwd ex = Exception(&amp;#39;密码长度小于8&amp;#39;) raise ex if __name__ ==&amp;#39;__main__&amp;#39;: try: print(input_pwd()) except Exception as result: print(&amp;#39;输入异常&amp;#39;) 模块 模块提供的工具有：
+- 全局变量 - 函数 - 类  模块导入  文件被导入时，能够被直接执行的代码不需要被执行！ 在导入文件时，文件中所有没有锁紧的代码都会被执行一遍！  使用 __name__属性
+  如果文件直接被执行，__name__ 永远是 __main__。
+  如果文件是被导入的，__name__ 是 文件名。
+  文件中的测试代码，为了避免在导入的时候被执行，可以使用:
+  def main(): # test pass if __name__ == &amp;#39;__main__&amp;#39;: main()     包(package)   每个包是一个direcotry
+  必须要在directory下面创建 __init__.py
+  在__init__.py中将可以对外提供的工具列出来。
+  # __init__.py # 从 当前目录 导入 模块列表 from . import module1 from . import module2     发布 包 三个步骤：
+- 在包外面创建 `setup.py`   构建模块：python setup.py build  会生成build目录   发布模块：python setup.py sdist  会生成dist目录  内部包含 xxxx.tar.gz文件      setup.py
+from distutils.core import setup setup(name=&amp;#39;xxx&amp;#39;, version=&amp;#39;1.0&amp;#39;, ..., py_module=[&amp;#39;包名.模块名&amp;#39;， &amp;#39;包名.模块名&amp;#39;]) 安装模块 tar -zxvf xxxxx.tar.gz sudo python setup.py install 想要卸载的话，就把安装模块在系统目录内删掉。
+package位置的区别：
+如果是系统自带的python，会使用dist-packages目录；
+如果你手动安装python，它会直接使用目录site-packages。
+这允许你让两个安装隔离开来。
+dist-packages：系统自带的python
+site-packages：自己安装的python
+eval() # 可以直接执行str的内容，但是很危险。# 例如，可以通过下面的str把文件给删除了！__import__(&amp;#39;os&amp;#39;).system(&amp;#39;rm xxx&amp;#39;) vim 从vi发展过来的一个文本编辑器。支持补全、编译、跳转。
+ 打开&#43;跳转到指定行数  vim 文件 &#43; 行数  三种模式  命令模式 行末模式 编辑模式    学习路线  重复次数： 数字&#43;命令 移动和选择 编辑操作  删除、复制、粘贴、替换、缩排   撤销和重复 查找替换 编辑  移动选择   句子内移动
+ w 向下移动一个单词 &amp;lsquo;b&amp;rsquo; 向上移动一个单词    行数移动
+ gg (go) 移动到第一行 G 移动到最后一行 100gg 移动到第100行    段落移动
+ { } 括号切换 %    mark标记
+  mx x是a-z, A-Z的任意一个字母
+  跳转的时候输入&#39;x，x为对应的字母
+    可视模式  v：可视模式 V：可视行模式 ctrl&#43;v：可视块模式，垂直方向选择文本  撤销和恢复  u，undo； ctrl&#43;r ，redo；  删除文本  x：cut，剪切 d(移动命令)：删除, dw, d2j(删除下面两行), d6G(删除到第六行)  dw d0，删除到行首 d} ndd：向下连续删除 n 行 d代码行G d&#39;a   &amp;lsquo;dd&amp;rsquo;：删除行 &amp;lsquo;D&amp;rsquo;：删除到行末尾  复制命令  y(移动命令)，后面的内容与d(移动命令)一致。 y表示复制 yy, nyy; 复制一行或者多行 p 粘贴; 如果是多行，则在光标下一行开始粘贴；如果不是一整行，就在光标位置粘贴。  5p粘贴5次    注意： vi中删除、剪切是把文本挪动到文本缓冲区中，类似于ctrl&#43;x。 同时，vi不使用系统剪切板。
+即，其他软件中剪切的内容是无法通过p被复制到vi编辑的文本中。
+与系统剪切板进行复制粘贴   复制： 将y修改成&amp;quot;&#43;y
+  粘贴： 将p修改成&amp;quot;&#43;p
+  替换  r：替换当前光标 R：替换当前光标后所有内容  缩进以及重复执行 normal 模式下：
+ &amp;gt;&amp;gt;, 2&amp;gt;&amp;gt;表示接下当前行和下一行都向右缩进 &amp;lt;&amp;lt;  在visual 模式下，：
+ &amp;gt; &amp;lt;  重复：
+ .，即可重复执行上一次的命令。  查找   \str，查找之后使用next查询下一个位置
+ n：查询下一个 N：查询上一个    单词快速匹配，光标在某个单词上，输入如下指令：
+ *：向下查找 #：向上查找    查找并替换   格式比较固定： :%s///g
+  全局替换：
+ :%s/旧文本/新文本/g    可视区域范围替换：在可视模式下选择范围。但是没有%
+ :s/旧文本/新文本/g    确认替换：在替换的时候会有提示。 y/n/a/q/l/^E/^Y. 是/否/全部/退出/跳转到最后一个/下滚屏/上滚屏
+ :%s/旧文本/新文本/gc    插入命令  i：当前字符前插入 I：当前行首插入 a：当前字符后插入 A：当前行尾插入 o：当前行下一行插入一空行 O：当前行上一行插入一空行  编辑命令和数字连用 重复10个 *
+  先在normal模式下输入 10
+  进入编辑模式输入 *
+  退回到normal即可完成动作的重复操作。
+  注意：在正常开发的情况下，进入编辑模式之前千万不要按数字。
+分屏命令 末行拓展命令:
+ :e . 使用vim的内置浏览器查看文件目录下的文件 :e xxx 打开 xxx 文件 :n xxx 新建 xxx 文件 :w xxx 另存为 xxx 文件  分屏命令:
+ :sp 横向分屏 :vsp 纵向分屏  切换分屏： ctrl&#43;w
+ w 切换窗口 r互换窗口 c关闭当前窗口，如果是最后一个窗口，则不起作用。 q退出当前窗口，如果是最后一个，则退出vim o关闭其他窗口  </content>
+    </entry>
+    
+     <entry>
+        <title>Intro2python_part3</title>
+        <url>/post/2021/07/intro2python_part3/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          <tag>python</tag>
+        </tags>
+        <content type="html"> 类与print print 类的对象变量，默认情况下是输出这个变量 **引用的对象 **是 由哪一个类创建的对象。
+以及在内存中的地址（16进制）
+类的声明 Tom = Cat() # 这里系统做了两件事情： # 1. 在内存中为Tom申请了一块空间 # 2. 执行 Cat 的 __init__函数 内置函数：  __str__ __del__  一行过长分行小技巧 在前后加上( )。
+python能够自动的将小括号中的内容拼接起来。
+身份运算符 is 等价于 id(xx) == id(xx); 比较内存地址是否一致
+is not
+注意：is比较变量的id，==比较变量的值
+私有属性&amp;amp;方法 在名称前加两个下划线 ，无法直接被方法。
+但是python中这是一种伪私有。
+可以通过_类名__私有变量， _类名__私有方法来访问。
+super的使用 彻底搞懂python super函数的作用
+super()
+继承 子类对象不能在自己的方法内部，直接访问父类的私有方法和私有属性。
+method resolution order   方法搜索顺序 MRO
+  这是类的一个内置属性。__mro__
+  多继承中，如果多个父类有相同的方法，尽量避免多继承的使用。
+  object 所有类的祖宗类。
+class 类名(object): pass # object 封装了一些内置属性。推荐使用继承object。 # python3 中没有指定object的话，默认使用继承object。 类是一个特殊的对象  区别于实例对象 类对象具有：  类方法 类属性    类方法 @classmethod def 类方法(cls): pass 静态方法  不需要 实例属性 不需要 类属性  @staticmethod def 静态方法(): pass 单例设计模式  目的：让 类 创建的对象在系统中只有唯一的一个实例。 每一次执行 类名() 返回的对象，内存地址是相同的。  a=类名()，完成两件事情：
+ __new___ 分配空间 __init__ 初始化  设置一个类属性初始化为 instance = None
+cls.instance 记录第一个被创建对象的引用。
+cls.instance is None 来实现唯一。
+</content>
+    </entry>
+    
+     <entry>
+        <title>Intro2python_part2</title>
+        <url>/post/2021/07/intro2python_part2/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          <tag>python</tag>
+        </tags>
+        <content type="html"> pyc文件  python compiled  不需要每次运行的时候重新翻译   缓存文件 二进制 称为字节码  del  本质上上将变量从内存中删除  list &amp;amp; tuple   list
+ 通常保存相同类型数据    tuple
+  通常保存不同数据
+  格式字符串，()本质上就是元祖。
+ &amp;lsquo;%f&amp;rsquo; %(number, ) 注意这里的逗号，不可省略。      dict  更新： update  dict_a.updata(dict_b) 如果dict_b里面包含dict_a的key，那么dict_a里的key的值会被覆盖。   循环  for k in dict: 这里的k会得到keys    字符串  strip  去除空白字符  &amp;ldquo;\r\n\t&amp;rdquo; space      完整for循环 for xxx in xxxx: ... else: 只有循环被完全执行完（没有break）的情况下，else会在循环结束的时候执行。 在搜索的时候，如果循环一遍之后没有找到搜索目标，希望在搜索结束的时候有一个统一的输入提示，那么就使用for-else结构。
+shebang #!
+#! /usr/bin/python3 # 【#!】表示 shebang符号 # 加入解释器的绝对路径，使用chmod &#43; x， 添加可执行权限，就可以在命令行中输入 ./xx.py 来执行。 变量进阶  数据：保存在内存中的一个位置 变量：保存数据在内存中的地址  变量中记录数据的地址，叫做引用 id()可以查看变量保存的地址。即，数据对应的地址。    可变与不可变类型  不可变：  int long float str tuple   可变：  list dict 这里是指，可以通过method调用，在不修改地址的情况下修改类型中的值。    a = [1, 2, 3] a = [1, 1, 1] # 这里是改变a的引用，而不是修改[1, 2, 3]中的值。 # 赋值语句会修改变量的id 注意：字典的key必须是不可变的类型。
+全局变量的修改 在函数中修改全局变量需要在变量赋值前加 global这个限定符
+num = 10 def func(): num = 99 # 创建局部变量 # global num # num = 98 # 修改全局变量 函数进阶 函数返回值   多个返回值 return a, b, c 这是一个元组
+  拓展，交换两数
+  a, b = (b, a) a, b = b, a # 可以省略括号     多值参数   一个函数能处理的参数 个数不确定
+  两种类型
+  *args
+  接受 tuple
+  调用的时候不需要指定元组
+  def func(*args): xxx func(1,2,3,4)      **kwargs
+ 接受 dict      tuple、dict的拆包
+  a = [1,2,3] ka = {&amp;#39;name&amp;#39;:aa, &amp;#39;age&amp;#39;:18} # 拆包 func(*a) # 这样，func的args就是a了，有3个参数，而不是一个list参数。   *list
+  **dict
+    类和对象  类的三要素：  类名：大驼峰命名 属性： 方法：（函数   类是对象的模板。  把飞机图纸当成类，可以造出各种各样的飞机。（红黄蓝绿）   dir内置函数  查看对象所有可用的方法   数据、变量、函数在python中都是对象  </content>
+    </entry>
+    
+     <entry>
+        <title>Intro2python_part1</title>
+        <url>/post/2021/07/intro2python_part1/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          <tag>python</tag>
+        </tags>
+        <content type="html"> 内核 和 发行版 发行版： centOS, ubuntu redhat
+内核只有一个。发行版是基于内核开发的包括图形化界面以及一些运用软件的软件。
+终端命令 命令行放大缩小 放大：cmd&#43;shift&#43;&#43;
+缩小：cmd &#43; &#39;-&#39;
+常见命令 查阅指令  command —help man command  manual    ls ls -a # 所有的文件，包括隐藏文件 ls -hl # 显示mod和大小。 h表示human,大小按照Byte, M, G来显示。 通配符 cat and more grep 搜索 echo 重定向输出 echo hello python &amp;gt; a #创建a，输入hello python 管道| 过滤执行的输出
+ssh 配置别名 配置免密登录 ssh-keygen #一路enter就行 ssh-copy-id user@addr 注意点：vscode的连接 先手动连接一下，按F1。选择如下：
+Remote-SSH: Connect to Host 用户管理 用户信息查看 修改附加组 usermod -G sudo zhangsan which 查看位置 bin &amp;amp; sbin 修改文件权限 系统信息相关命令 process status 指定参数不带 -
+find  grep 是用来搜文本中的内容 find 是用来搜文件  软链接 大白话：win下面的快捷方式
+习惯：使用绝对路径
+打包 注意：tar只负责打包，不负责压缩！！！
+操作：
+压缩/解压  gzip   bzip2   apt安装管理  advanced packaging tool  </content>
+    </entry>
+    
+     <entry>
+        <title>A First Course in Probability - part 2</title>
         <url>/post/2021/05/a_first_course_in_probability_9th_2/</url>
         <categories>
           

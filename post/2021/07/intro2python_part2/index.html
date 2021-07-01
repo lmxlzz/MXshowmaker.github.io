@@ -1,0 +1,625 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Intro2python_part2 - Blogs of Mingxian</title>
+    <meta name="keywords" content="博客,思考,读书,笔记,分享">
+    
+    <meta property="og:title" content="Intro2python_part2">
+    <meta property="og:site_name" content="Blogs of Mingxian">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Intro2python_part2 - Blogs of Mingxian" />
+    <meta name="description" content=" 博客 | Leanring | Python"> 
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon.png" />
+    <link href="/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+</head>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href=""  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Blogs of Mingxian</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E6%84%9F%E6%83%B3/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E6%9D%82%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> 搜索</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="/post/2021/07/intro2python_part2/" itemprop="url">
+        Intro2python_part2
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">时间：</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2021-07-01">
+    2021-07-01
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">阅读：</span>
+<span class="leancloud-visitors-count">881 字 ~2分钟</span>
+</span>
+	  &nbsp; | &nbsp;
+<span class="article-tag">
+            <i class="fa fa-eye"></i> 
+            <span id="busuanzi_container_page_pv">
+            <span id="busuanzi_value_page_pv">0</span>
+            </span>
+        </span>
+
+      </div>
+
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    <h3 id="pyc文件">pyc文件</h3>
+<ul>
+<li>python compiled
+<ul>
+<li>不需要每次运行的时候重新翻译</li>
+</ul>
+</li>
+<li>缓存文件</li>
+<li>二进制</li>
+<li>称为字节码</li>
+</ul>
+<h3 id="del">del</h3>
+<ul>
+<li>本质上上将变量从内存中删除</li>
+</ul>
+<h3 id="list--tuple">list &amp; tuple</h3>
+<ul>
+<li>
+<p>list</p>
+<ul>
+<li>通常保存相同类型数据</li>
+</ul>
+</li>
+<li>
+<p>tuple</p>
+<ul>
+<li>
+<p>通常保存不同数据</p>
+</li>
+<li>
+<p>格式字符串，<code>()</code>本质上就是元祖。</p>
+<ul>
+<li>&lsquo;%f&rsquo; %(number, )   注意这里的逗号，不可省略。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="dict">dict</h3>
+<ul>
+<li>更新： update
+<ul>
+<li>dict_a.updata(dict_b)</li>
+<li>如果dict_b里面包含dict_a的key，那么dict_a里的key的值会被覆盖。</li>
+</ul>
+</li>
+<li>循环
+<ul>
+<li>for k in dict:</li>
+<li>这里的k会得到keys</li>
+</ul>
+</li>
+</ul>
+<h3 id="字符串">字符串</h3>
+<ul>
+<li>strip
+<ul>
+<li>去除空白字符
+<ul>
+<li>&ldquo;\r\n\t&rdquo;</li>
+<li>space</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="完整for循环">完整for循环</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> xxx <span style="color:#f92672">in</span> xxxx:
+  <span style="color:#f92672">...</span>
+<span style="color:#66d9ef">else</span>:
+  <span style="color:#960050;background-color:#1e0010">只有循环被完全执行完（没有</span><span style="color:#66d9ef">break</span><span style="color:#960050;background-color:#1e0010">）的情况下，</span>else会在循环结束的时候执行<span style="color:#960050;background-color:#1e0010">。</span>
+</code></pre></div><p>在搜索的时候，如果循环一遍之后没有找到搜索目标，希望在搜索结束的时候有一个统一的输入提示，那么就使用<code>for-else</code>结构。</p>
+<h3 id="shebang">shebang</h3>
+<p><code>#!</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#! /usr/bin/python3</span>
+<span style="color:#75715e"># 【#!】表示 shebang符号</span>
+<span style="color:#75715e"># 加入解释器的绝对路径，使用chmod + x， 添加可执行权限，就可以在命令行中输入 ./xx.py 来执行。</span>
+</code></pre></div><h3 id="变量进阶">变量进阶</h3>
+<ul>
+<li>数据：保存在内存中的一个位置</li>
+<li>变量：保存数据在内存中的地址
+<ul>
+<li>变量中记录数据的地址，叫做引用</li>
+<li>id()可以查看变量保存的地址。即，数据对应的地址。</li>
+</ul>
+</li>
+</ul>
+<h4 id="可变与不可变类型">可变与不可变类型</h4>
+<ul>
+<li>不可变：
+<ul>
+<li>int</li>
+<li>long</li>
+<li>float</li>
+<li>str</li>
+<li>tuple</li>
+</ul>
+</li>
+<li>可变：
+<ul>
+<li>list</li>
+<li>dict</li>
+<li>这里是指，可以通过method调用，在不修改地址的情况下修改类型中的值。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>]
+a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">1</span>] <span style="color:#75715e"># 这里是改变a的引用，而不是修改[1, 2, 3]中的值。</span>
+<span style="color:#75715e"># 赋值语句会修改变量的id</span>
+</code></pre></div><p><strong>注意：字典的key必须是不可变的类型。</strong></p>
+<h4 id="全局变量的修改">全局变量的修改</h4>
+<p>在函数中修改全局变量需要在变量赋值前加 <code>global</code>这个限定符</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">num = 10
+
+def func():
+	num = 99 # 创建局部变量
+	# global num 
+	# num = 98 # 修改全局变量
+</code></pre></div><h3 id="函数进阶">函数进阶</h3>
+<h4 id="函数返回值">函数返回值</h4>
+<ul>
+<li>
+<p>多个返回值 return a, b, c   这是一个元组</p>
+<ul>
+<li>
+<p>拓展，交换两数</p>
+</li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a, b <span style="color:#f92672">=</span> (b, a)
+a, b <span style="color:#f92672">=</span> b, a <span style="color:#75715e"># 可以省略括号</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ul>
+<h4 id="多值参数">多值参数</h4>
+<ul>
+<li>
+<p>一个函数能处理的参数 <strong>个数</strong>不确定</p>
+</li>
+<li>
+<p>两种类型</p>
+<ul>
+<li>
+<p>*args</p>
+<ul>
+<li>
+<p>接受 tuple</p>
+</li>
+<li>
+<p>调用的时候不需要指定元组</p>
+</li>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">func</span>(<span style="color:#f92672">*</span>args):
+  xxx
+      
+func(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>,<span style="color:#ae81ff">4</span>)
+</code></pre></div></li>
+<li></li>
+</ul>
+</li>
+<li>
+<p>**kwargs</p>
+<ul>
+<li>接受 dict</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>tuple、dict的拆包</p>
+<ul>
+<li>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">a <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">3</span>]
+ka <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;name&#39;</span>:aa, <span style="color:#e6db74">&#39;age&#39;</span>:<span style="color:#ae81ff">18</span>}
+<span style="color:#75715e"># 拆包</span>
+func(<span style="color:#f92672">*</span>a)
+<span style="color:#75715e"># 这样，func的args就是a了，有3个参数，而不是一个list参数。</span>
+</code></pre></div></li>
+<li>
+<p>*list</p>
+</li>
+<li>
+<p>**dict</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="类和对象">类和对象</h3>
+<ul>
+<li>类的三要素：
+<ul>
+<li>类名：大驼峰命名</li>
+<li>属性：</li>
+<li>方法：（函数</li>
+</ul>
+</li>
+<li>类是对象的模板。
+<ul>
+<li>把飞机图纸当成类，可以造出各种各样的飞机。（红黄蓝绿）</li>
+</ul>
+</li>
+<li>dir内置函数
+<ul>
+<li>查看对象所有可用的方法</li>
+</ul>
+</li>
+<li>数据、变量、函数在python中都是对象</li>
+</ul>
+
+    </div>
+	<div class="post-comment">
+    
+      
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'vgMlSSK3qQJHQTiJ54PJa9gW-gzGzoHsz',
+        appKey: 'AviPAsR0yDFrEHKE3ulVgLF9',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+	</div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="/tags/python" rel="tag" title="python">#python#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+        <a href="/post/2021/07/intro2python_part3/" rel="next" title="Intro2python_part3">
+        <i class="fa fa-chevron-left"></i> Intro2python_part3
+        </a>
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="/post/2021/07/intro2python_part1/" rel="prev" title="Intro2python_part1">
+        Intro2python_part1 <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="/img/author.jpg"
+        alt="Mingxian Lin" />
+    <p class="site-author-name" itemprop="name">Mingxian Lin</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        M.S. in ICT. UCAS.</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="/post/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">日志</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="/categories/">      
+         
+        <span class="site-state-item-count">0</span>
+        
+        <span class="site-state-item-name">分类</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="/tags/">
+         
+        <span class="site-state-item-count">9</span>
+        
+        <span class="site-state-item-name">标签</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/MaxLin3104/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/" target="_blank" title="知乎">
+            <i class="fa fa-fw fa-globe"></i>
+            知乎
+        </a>
+        </span>
+    
+</div>
+
+
+      
+
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2021</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Blogs of Mingxian</span>
+ <span class="with-love"><i class="fa fa-heart"></i></span> 
+  <span id="busuanzi_container_site_pv">
+  总访问量：<span id="busuanzi_value_site_pv"><span id="busuanzi_value_site_pv">0</span></span>   </span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span id="busuanzi_container_site_uv">
+  总访客数: <span id="busuanzi_value_site_uv"><span id="busuanzi_value_site_uv">0</span></span>
+    </span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.82.0</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['~+(','~+)']],
+            displayMath: [['$$','$$'], ['~+[','~+]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: {
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script>
+    var local_imgs=document.getElementsByTagName('img');
+    for (var i = 0; i < local_imgs.length-1; i++) {
+		var src = local_imgs[i].getAttribute('src');
+        local_imgs[i].setAttribute('src',"../"+src);
+    } 
+</script>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span id="scrollpercent"><span>0</span>%</span>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/motion.js"></script>
+<script type="text/javascript" src="/js/affix.js"></script>
+<script type="text/javascript" src="/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="/js/scrollspy.js"></script>
+<script type="text/javascript" src="/js/post-details.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+</body>
+</html>

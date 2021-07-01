@@ -6,9 +6,45 @@
     <description>Recent content on Blogs of Mingxian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 07 May 2021 15:12:05 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jul 2021 10:44:50 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>A First Course in Probability - part 1</title>
+      <title>Intro2python_part4</title>
+      <link>/post/2021/07/intro2python_part4/</link>
+      <pubDate>Thu, 01 Jul 2021 10:44:50 +0800</pubDate>
+      
+      <guid>/post/2021/07/intro2python_part4/</guid>
+      <description>捕获异常 try: pass except 错误类型1： pass except (错误类型2， 错误类型3)： pass except Exception as result: print(&amp;#39;未知错误 %s&amp;#39; %(result, )) else: # 没有异常才会被执行。 pass finally: # 不管对</description>
+    </item>
+    
+    <item>
+      <title>Intro2python_part3</title>
+      <link>/post/2021/07/intro2python_part3/</link>
+      <pubDate>Thu, 01 Jul 2021 10:44:48 +0800</pubDate>
+      
+      <guid>/post/2021/07/intro2python_part3/</guid>
+      <description>类与print print 类的对象变量，默认情况下是输出这个变量 **引用的对象 **是 由哪一个类创建的对象。 以及在内存中的地址（16进制） 类的声明 Tom = Cat()</description>
+    </item>
+    
+    <item>
+      <title>Intro2python_part2</title>
+      <link>/post/2021/07/intro2python_part2/</link>
+      <pubDate>Thu, 01 Jul 2021 10:44:46 +0800</pubDate>
+      
+      <guid>/post/2021/07/intro2python_part2/</guid>
+      <description>pyc文件 python compiled 不需要每次运行的时候重新翻译 缓存文件 二进制 称为字节码 del 本质上上将变量从内存中删除 list &amp;amp; tuple list 通常保存相同类型数据 tuple 通常保存不同数据</description>
+    </item>
+    
+    <item>
+      <title>Intro2python_part1</title>
+      <link>/post/2021/07/intro2python_part1/</link>
+      <pubDate>Thu, 01 Jul 2021 10:44:43 +0800</pubDate>
+      
+      <guid>/post/2021/07/intro2python_part1/</guid>
+      <description>内核 和 发行版 发行版： centOS, ubuntu redhat 内核只有一个。发行版是基于内核开发的包括图形化界面以及一些运用软件的软件。 终端命令 命令行放大缩小 放大：cmd+sh</description>
+    </item>
+    
+    <item>
+      <title>A First Course in Probability - part 2</title>
       <link>/post/2021/05/a_first_course_in_probability_9th_2/</link>
       <pubDate>Fri, 07 May 2021 15:12:05 +0800</pubDate>
       
