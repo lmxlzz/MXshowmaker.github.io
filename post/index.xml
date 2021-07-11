@@ -6,7 +6,16 @@
     <description>Recent content in Posts on Blogs of Mingxian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 01 Jul 2021 10:44:50 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Jul 2021 21:54:57 +0800</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SSH远程</title>
+      <link>/post/2021/07/ssh%E8%BF%9C%E7%A8%8B/</link>
+      <pubDate>Fri, 09 Jul 2021 21:54:57 +0800</pubDate>
+      
+      <guid>/post/2021/07/ssh%E8%BF%9C%E7%A8%8B/</guid>
+      <description>SSH 远程 目标：跳板机是win10，目标机器是Linux。 win10由于在所里，无法直接访问，这里找实验室的师兄帮忙做了一个端口映射，可以从外网</description>
+    </item>
+    
     <item>
       <title>Intro2python_part4</title>
       <link>/post/2021/07/intro2python_part4/</link>

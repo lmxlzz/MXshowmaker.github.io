@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>Tags - Blogs of Mingxian</title>
+    <title>SSH远程 - Blogs of Mingxian</title>
     <meta name="keywords" content="博客,思考,读书,笔记,分享">
     
-    <meta property="og:title" content="Tags">
+    <meta property="og:title" content="SSH远程">
     <meta property="og:site_name" content="Blogs of Mingxian">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="Tags - Blogs of Mingxian" />
+    <meta name="title" content="SSH远程 - Blogs of Mingxian" />
     <meta name="description" content=" 博客 | Leanring | Python"> 
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon.png" />
     <link href="/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    
+    <link href="/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
     <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" id="hexo.configuration">
@@ -24,7 +24,7 @@
   var CONFIG = {
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
-    fancybox: false, 
+     fancybox: true, 
     motion: true
   };
 </script>
@@ -35,7 +35,7 @@
   <meta name="referrer" content="no-referrer-when-downgrade">
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<div class="container one-collumn sidebar-position-left   ">
+<div class="container one-collumn sidebar-position-left page-home  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -128,50 +128,164 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-<div id="posts" class="posts-expand">
-    
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="/post/2021/07/ssh%E8%BF%9C%E7%A8%8B/" itemprop="url">
+        SSH远程
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">时间：</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2021-07-09">
+    2021-07-09
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">阅读：</span>
+<span class="leancloud-visitors-count">729 字 ~2分钟</span>
+</span>
+	  &nbsp; | &nbsp;
+<span class="article-tag">
+            <i class="fa fa-eye"></i> 
+            <span id="busuanzi_container_page_pv">
+            <span id="busuanzi_value_page_pv">0</span>
+            </span>
+        </span>
 
+      </div>
+
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    <h1 id="ssh-远程">SSH 远程</h1>
+<ul>
+<li>目标：跳板机是win10，目标机器是Linux。</li>
+<li>win10由于在所里，无法直接访问，这里找实验室的师兄帮忙做了一个端口映射，可以从外网访问某个端口，从而直接转发到win10跳板机上。（这个跳板机是我个人的主机）</li>
+</ul>
+<p>想要从外网访问内网的服务器，中间经过跳板机，外网接口的端口<strong>5000</strong>映射为跳板机的端口<strong>22</strong>。</p>
+<h1 id="win10-如何做跳板机">win10 如何做跳板机</h1>
+<p>参考<a href="https://zhuanlan.zhihu.com/p/109838224">Win10 安装 OpenSSH 并搭建服务器</a>。</p>
+<p>先到<a href="https://github.com/PowerShell/Win32-OpenSSH/releases/tag/V8.6.0.0p1-Beta">github</a>的这个链接上下载OpenSSH server的zip文件。</p>
+<ul>
+<li>
+<p>将下载的zip文件解压到 <code>C:\Program Files\OpenSSH</code></p>
+</li>
+<li>
+<p>用管理员权限打开 PowerShell，进入安装目录，运行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1
+</code></pre></div></li>
+<li>
+<p>为ssh设置防火墙，运行：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">netsh advfirewall firewall add rule name=sshd dir=in action=allow protocol=TCP localport=22
+</code></pre></div></li>
+<li>
+<p>开启 ssh 服务并且设置开机启动以及相关的防火墙：</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">  Start-Service sshd
+  # OPTIONAL but recommended:
+  Set-Service -Name sshd -StartupType &#39;Automatic&#39;
+  # Confirm the Firewall rule is configured. It should be created automatically by setup. 
+  Get-NetFirewallRule -Name *ssh*
+  # There should be a firewall rule named &#34;OpenSSH-Server-In-TCP&#34;, which should be enabled
+  # If the firewall does not exist, create one
+  New-NetFirewallRule -Name sshd -DisplayName &#39;OpenSSH Server (sshd)&#39; -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22
+</code></pre></div><p>这里可以把远程的shell从Command换成git的bash，找到bash.exe的位置即可。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">New-ItemProperty -Path &#34;HKLM:\SOFTWARE\OpenSSH&#34; -Name DefaultShell -Value &#34;C:\Program Files\Git\bin\bash.exe&#34; -PropertyType String -Force
+</code></pre></div><h1 id="ssh-通过跳板机直接访问内网机器">SSH 通过跳板机直接访问内网机器</h1>
+<p>内网服务器地址：2.2.2.2</p>
+<p>外网访问地址：1.1.1.1:5000</p>
+<p>参考<a href="https://www.jianshu.com/p/fa7e35fa1ab1">ssh 隧道应用&amp;代理</a>。</p>
+<p>这里使用SSH中的 ProxyCommand</p>
+<p>在<code>./ssh/config</code>文件中添加：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">Host IctJumpMachine
+    HostName 1.1.1.1
+    User xxxx
+    Port 50000
+    
+Host Jumpxxx
+    HostName 2.2.2.2
+    User user
+    ProxyCommand ssh -W %h:%p IctJumpMachine
+</code></pre></div><p><strong>注意</strong>: <strong>ProxyCommand</strong> 的位置前往要注意，是在内网机器中添加 <strong>ProxyCommand</strong>，而不是在跳板机中添加ProxyCommand。</p>
+<p>原理就是连接ssh Jumpxxx 之前，先ssh 到 IctJumpMachine 。然后通过这个连接再ssh Jumpxxx。</p>
+<p>关于vscode上的配置，参考<a href="https://zhuanlan.zhihu.com/p/103578899">VSCode Remote ssh跳板机配置（windows平台）</a>。</p>
+<h1 id="reference">Reference</h1>
+<ul>
+<li><a href="https://zhuanlan.zhihu.com/p/109838224">Win10 安装 OpenSSH 并搭建服务器</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/103578899">VSCode Remote ssh跳板机配置（windows平台）</a></li>
+<li><a href="https://www.jianshu.com/p/fa7e35fa1ab1">ssh 隧道应用&amp;代理</a></li>
+</ul>
+
+    </div>
+	<div class="post-comment">
+    
       
-       <div class="tag-cloud">
-        <div class="tag-cloud-title">
-            目前共计 10 个标签
-        </div>
-        <div class="tag-cloud-tags">
-            
-             <a href="/tags/blog" style="font-size: 24.5px; color: #212121">blog</a>
-             <span class="tag-list-count"><sup>1</sup></span>
-             
-             <a href="/tags/convolution" style="font-size: 24.5px; color: #212121">convolution</a>
-             <span class="tag-list-count"><sup>1</sup></span>
-             
-             <a href="/tags/flow" style="font-size: 24.5px; color: #212121">flow</a>
-             <span class="tag-list-count"><sup>1</sup></span>
-             
-             <a href="/tags/generative-model" style="font-size: 24.5px; color: #212121">generative-model</a>
-             <span class="tag-list-count"><sup>1</sup></span>
-             
-             <a href="/tags/implicit-field" style="font-size: 24.5px; color: #212121">implicit-field</a>
-             <span class="tag-list-count"><sup>1</sup></span>
-             
-             <a href="/tags/math" style="font-size: 24.5px; color: #212121">math</a>
-             <span class="tag-list-count"><sup>2</sup></span>
-             
-             <a href="/tags/probability" style="font-size: 24.5px; color: #212121">probability</a>
-             <span class="tag-list-count"><sup>2</sup></span>
-             
-             <a href="/tags/python" style="font-size: 24.5px; color: #212121">python</a>
-             <span class="tag-list-count"><sup>4</sup></span>
-             
-             <a href="/tags/pytorch" style="font-size: 24.5px; color: #212121">pytorch</a>
-             <span class="tag-list-count"><sup>1</sup></span>
-             
-             <a href="/tags/ssh" style="font-size: 24.5px; color: #212121">ssh</a>
-             <span class="tag-list-count"><sup>1</sup></span>
-             
-        </div>
-       </div>
-      
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'vgMlSSK3qQJHQTiJ54PJa9gW-gzGzoHsz',
+        appKey: 'AviPAsR0yDFrEHKE3ulVgLF9',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+	</div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="/tags/ssh" rel="tag" title="ssh">#ssh#</a>
+    
 </div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="/post/2021/07/intro2python_part4/" rel="prev" title="Intro2python_part4">
+        Intro2python_part4 <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+
+
+    </footer>
+  </article>
+</section>
 
           </div>
         </div>
@@ -221,13 +335,6 @@
     </div>
 </nav>
       
-<div class="feed-link motion-element">
-<a href="/tags/index.xml" rel="alternate" type="application/rss+xml" target="_blank">
-    <i class="fa fa-rss"></i>
-    RSS 订阅
-</a>
-</div>
-
       
 <div class="links-of-author motion-element">
     
@@ -334,16 +441,18 @@
 <script type="text/javascript" src="/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
+<script src="/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
 <script type="text/javascript" src="/js/utils.js"></script>
 <script type="text/javascript" src="/js/motion.js"></script>
 <script type="text/javascript" src="/js/affix.js"></script>
 <script type="text/javascript" src="/js/schemes/pisces.js"></script>
 
-<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/scrollspy.js"></script>
+<script type="text/javascript" src="/js/post-details.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
 
-<script type="text/javascript" id="motion.page.archive">
-  $('.archive-year').velocity('transition.slideLeftIn');
-</script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
 
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/x-mathjax-config">

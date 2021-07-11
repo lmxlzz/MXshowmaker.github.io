@@ -1,6 +1,34 @@
 <search>
     
      <entry>
+        <title>SSH远程</title>
+        <url>/post/2021/07/ssh%E8%BF%9C%E7%A8%8B/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          <tag>ssh</tag>
+        </tags>
+        <content type="html"> SSH 远程  目标：跳板机是win10，目标机器是Linux。 win10由于在所里，无法直接访问，这里找实验室的师兄帮忙做了一个端口映射，可以从外网访问某个端口，从而直接转发到win10跳板机上。（这个跳板机是我个人的主机）  想要从外网访问内网的服务器，中间经过跳板机，外网接口的端口5000映射为跳板机的端口22。
+win10 如何做跳板机 参考Win10 安装 OpenSSH 并搭建服务器。
+先到github的这个链接上下载OpenSSH server的zip文件。
+  将下载的zip文件解压到 C:\Program Files\OpenSSH
+  用管理员权限打开 PowerShell，进入安装目录，运行：
+powershell.exe -ExecutionPolicy Bypass -File install-sshd.ps1   为ssh设置防火墙，运行：
+netsh advfirewall firewall add rule name=sshd dir=in action=allow protocol=TCP localport=22   开启 ssh 服务并且设置开机启动以及相关的防火墙：
+  Start-Service sshd # OPTIONAL but recommended: Set-Service -Name sshd -StartupType &amp;#39;Automatic&amp;#39; # Confirm the Firewall rule is configured. It should be created automatically by setup. Get-NetFirewallRule -Name *ssh* # There should be a firewall rule named &amp;#34;OpenSSH-Server-In-TCP&amp;#34;, which should be enabled # If the firewall does not exist, create one New-NetFirewallRule -Name sshd -DisplayName &amp;#39;OpenSSH Server (sshd)&amp;#39; -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 22 这里可以把远程的shell从Command换成git的bash，找到bash.exe的位置即可。
+New-ItemProperty -Path &amp;#34;HKLM:\SOFTWARE\OpenSSH&amp;#34; -Name DefaultShell -Value &amp;#34;C:\Program Files\Git\bin\bash.exe&amp;#34; -PropertyType String -Force SSH 通过跳板机直接访问内网机器 内网服务器地址：2.2.2.2
+外网访问地址：1.1.1.1:5000
+参考ssh 隧道应用&amp;amp;代理。
+这里使用SSH中的 ProxyCommand
+在./ssh/config文件中添加：
+Host IctJumpMachine HostName 1.1.1.1 User xxxx Port 50000 Host Jumpxxx HostName 2.2.2.2 User user ProxyCommand ssh -W %h:%p IctJumpMachine 注意: ProxyCommand 的位置前往要注意，是在内网机器中添加 ProxyCommand，而不是在跳板机中添加ProxyCommand。
+原理就是连接ssh Jumpxxx 之前，先ssh 到 IctJumpMachine 。然后通过这个连接再ssh Jumpxxx。
+关于vscode上的配置，参考VSCode Remote ssh跳板机配置（windows平台）。
+Reference  Win10 安装 OpenSSH 并搭建服务器 VSCode Remote ssh跳板机配置（windows平台） ssh 隧道应用&amp;amp;代理  </content>
+    </entry>
+    
+     <entry>
         <title>Intro2python_part4</title>
         <url>/post/2021/07/intro2python_part4/</url>
         <categories>
