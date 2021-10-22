@@ -1,0 +1,519 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
+    <title>Gather Scatter的使用 - Blogs of Mingxian</title>
+    <meta name="keywords" content="博客,思考,读书,笔记,分享">
+    
+    <meta property="og:title" content="Gather Scatter的使用">
+    <meta property="og:site_name" content="Blogs of Mingxian">
+    <meta property="og:image" content="/img/author.jpg"> 
+    <meta name="title" content="Gather Scatter的使用 - Blogs of Mingxian" />
+    <meta name="description" content=" 博客 | Leanring | Python"> 
+    <link rel="shortcut icon" href="/img/favicon.ico" />
+    <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon.png" />
+    <link href="/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+    <link href="/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+    <link href="/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+     fancybox: true, 
+    motion: true
+  };
+</script>
+</head>
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  <meta name="referrer" content="no-referrer-when-downgrade">
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<div class="container one-collumn sidebar-position-left page-home  ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-meta  custom-logo ">
+
+  <div class="custom-logo-site-title">
+    <a href=""  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Blogs of Mingxian</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+    <ul id="menu" class="menu">
+      
+      
+        <li class="menu-item ">
+          <a href="/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-code"></i> <br />技术
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E6%84%9F%E6%83%B3/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-tint"></i> <br />感想
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />笔记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/categories/%E6%9D%82%E8%AE%B0/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-leaf"></i> <br />杂记
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/post/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档
+          </a>
+        </li>
+      
+        <li class="menu-item ">
+          <a href="/about/" rel="section">
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于
+          </a>
+        </li>
+      
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger"> <i class="menu-item-icon fa fa-search fa-fw"></i> <br /> 搜索</a>
+      </li>
+    </ul>
+    <div class="site-search">
+      <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+    </div>
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="/post/2021/10/gather%E4%B8%8Escatter%E7%9A%84%E4%BD%BF%E7%94%A8/" itemprop="url">
+        Gather Scatter的使用
+        </a>
+      </h1>
+      <div class="post-meta">
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">时间：</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2021-10-22">
+    2021-10-22
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">阅读：</span>
+<span class="leancloud-visitors-count">1311 字 ~3分钟</span>
+</span>
+	  &nbsp; | &nbsp;
+<span class="article-tag">
+            <i class="fa fa-eye"></i> 
+            <span id="busuanzi_container_page_pv">
+            <span id="busuanzi_value_page_pv">0</span>
+            </span>
+        </span>
+
+      </div>
+
+    </header>
+    <div class="post-body" itemprop="articleBody">
+    <h1 id="gather-scatter-的使用">gather-scatter 的使用</h1>
+<h3 id="scatter">scatter</h3>
+<p>在pytorch中，scatter是一个非常实用的映射函数，其将一个源张量（source）中的值按照指定的轴方向（dim）和对应的位置关系（index）逐个填充到目标张量（target）中。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">target<span style="color:#f92672">.</span>scatter(dim, index, src)
+</code></pre></div><p>这里用CSDN里面的一个形象的例子来简要说明。 (dim=0)</p>
+<pre><code>- **将source的值按照index散到target上。**
+
+- target是待填充的tensor。
+- index tensor 在各个维度的长度都应该要小于 source tensor。
+</code></pre>
+<ul>
+<li>遍历source tensor中的每个值（index覆盖的区域），在index tensor对应的位置，寻找索引号。根据index tensor中索引号填入target的对应位置。
+<ul>
+<li>例如，source00的值，寻找对应索引为index00=1，即将source00填入target10的位置。
+<ul>
+<li>source10的值，对应索引为index10=2，将source10=5填入target20的位置。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="gather%E4%B8%8Escatter%E7%9A%84%E4%BD%BF%E7%94%A8.assets/image-20211022232326611.png" alt="image-20211022232326611"></p>
+<p><strong>应用：</strong></p>
+<p>在深度学习制作标签的时候，可以给全零矩阵的某些行或者列赋值为1，从而制作one-hot matrix。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">tar <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>zeros(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">10</span>)
+src <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>ones(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">10</span>)
+index <span style="color:#f92672">=</span> <span style="color:#960050;background-color:#1e0010">从数据集中获取</span>, size<span style="color:#f92672">=</span>(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">10</span>)<span style="color:#960050;background-color:#1e0010">，表示</span><span style="color:#ae81ff">10</span><span style="color:#960050;background-color:#1e0010">个数据每个的标签</span><span style="color:#f92672">|</span> torch<span style="color:#f92672">.</span>LongTensor类型
+tar_ <span style="color:#f92672">=</span> tar<span style="color:#f92672">.</span>scatter(dim<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, index<span style="color:#f92672">=</span>index, src<span style="color:#f92672">=</span>src) <span style="color:#75715e"># 根据index将1填入每行中</span>
+</code></pre></div><h3 id="gather">gather</h3>
+<p>函数<code>torch.gather(input, dim, index, out=None) → Tensor</code>  沿给定轴 dim ,将输入索引张量 index 指定位置的值进行聚合。</p>
+<p>对一个 3 维张量,输出可以定义为:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">out[i][j][k] <span style="color:#f92672">=</span> input[index[i][j][k]][j][k]  <span style="color:#75715e"># if dim == 0</span>
+out[i][j][k] <span style="color:#f92672">=</span> input[i][index[i][j][k]][k]  <span style="color:#75715e"># if dim == 1</span>
+out[i][j][k] <span style="color:#f92672">=</span> input[i][j][index[i][j][k]]  <span style="color:#75715e"># if dim == 2</span>
+</code></pre></div><p>简单的说，就是根据index将input按照dim从中选择某些位置进行聚合。</p>
+<p>例子：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> torch
+a <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randint(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">30</span>, (<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>))
+<span style="color:#66d9ef">print</span>(a)
+<span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">tensor([[[ 18.,   5.,   7.,   1.,   1.],
+</span><span style="color:#e6db74">         [  3.,  26.,   9.,   7.,   9.],
+</span><span style="color:#e6db74">         [ 10.,  28.,  22.,  27.,   0.]],
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        [[ 26.,  10.,  20.,  29.,  18.],
+</span><span style="color:#e6db74">         [  5.,  24.,  26.,  21.,   3.],
+</span><span style="color:#e6db74">         [ 10.,  29.,  10.,   0.,  22.]]])
+</span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+index <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>LongTensor([[[<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">2</span>],
+                          [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>],
+                          [<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>]],
+                        [[<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>],
+                         [<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>],
+                         [<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>]]])
+<span style="color:#66d9ef">print</span>(a<span style="color:#f92672">.</span>size()<span style="color:#f92672">==</span>index<span style="color:#f92672">.</span>size())
+b <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>gather(a, <span style="color:#ae81ff">1</span>,index)
+<span style="color:#66d9ef">print</span>(b)
+<span style="color:#e6db74">&#39;&#39;&#39;
+</span><span style="color:#e6db74">True
+</span><span style="color:#e6db74">tensor([[[ 18.,  26.,  22.,   1.,   0.],
+</span><span style="color:#e6db74">         [ 18.,   5.,   7.,   1.,   1.],
+</span><span style="color:#e6db74">         [  3.,  26.,   9.,   7.,   9.]],
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">        [[  5.,  29.,  10.,   0.,  22.],
+</span><span style="color:#e6db74">         [ 26.,  10.,  20.,  29.,  18.],
+</span><span style="color:#e6db74">         [ 10.,  29.,  10.,   0.,  22.]]])
+</span><span style="color:#e6db74">可以看到沿着dim=1，也就是列的时候。输出tensor第一页内容，
+</span><span style="color:#e6db74">第一行分别是 按照index指定的，
+</span><span style="color:#e6db74">input tensor的第一页 
+</span><span style="color:#e6db74">第一列的下标为0的元素 第二列的下标为1元素 第三列的下标为2的元素，第四列下标为0元素，第五列下标为2元素
+</span><span style="color:#e6db74">index--&gt;0,1,2,0,2    output--&gt; 18.,  26.,  22.,   1.,   0.
+</span><span style="color:#e6db74">&#39;&#39;&#39;</span>
+</code></pre></div><ul>
+<li>输出的size与index的size是一样的</li>
+</ul>
+<p><strong>应用：</strong></p>
+<p>​	可以对input tensor根据给定维度，按照index进行重新排序。</p>
+<p>​	- 这里用dim=0做一个例子，在0维上进行重新排序</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">input <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>randn(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>)
+index <span style="color:#f92672">=</span> <span style="color:#75715e"># torch.LongTensor| size=(10， 10)| index 按照列，将原来input里面的每一列换了一个顺序，通常在深度学习中，这个顺序是max或min</span>
+re_sort <span style="color:#f92672">=</span> torch<span style="color:#f92672">.</span>gather(input<span style="color:#f92672">=</span>input, dim<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>, index<span style="color:#f92672">=</span>index)
+</code></pre></div><h3 id="torchwhere函数的使用">torch.where函数的使用</h3>
+<ul>
+<li>
+<p>根据条件，返回从x,y中选择元素所组成的张量。如果满足条件，则返回x中元素。若不满足，返回y中元素。</p>
+</li>
+<li>
+<p>element-wise</p>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">torch<span style="color:#f92672">.</span>where(condition, x, y) <span style="color:#f92672">-&gt;</span> Tensor
+</code></pre></div><p><img src="gather%E4%B8%8Escatter%E7%9A%84%E4%BD%BF%E7%94%A8.assets/image-20211022234830722.png" alt="image-20211022234830722"></p>
+<h3 id="判断-inf-与-nan">判断 inf 与 nan</h3>
+<p>在深度学习的研究过程中，出现 inf与nan是不少见的情况。这个时候，需要判断出现的地方以及进行处理。</p>
+<p>判断：</p>
+<pre><code>- torch.isnan()
+- torch.isinf()
+</code></pre>
+<p>处理：</p>
+<p>注意：这张图有点小问题，inf替换为1的话，torch.full_like里面应该改成torch.full_like(a, 1)</p>
+<p><img src="gather%E4%B8%8Escatter%E7%9A%84%E4%BD%BF%E7%94%A8.assets/image-20211022235033338.png" alt="image-20211022235033338"></p>
+<h1 id="reference">Reference</h1>
+<p><a href="https://blog.csdn.net/guofei_fly/article/details/104308528">【Pytorch】scatter函数详解</a></p>
+<p><a href="https://www.jianshu.com/p/5d1f8cd5fe31">pytorch中gather函数的理解</a></p>
+<p><a href="https://blog.csdn.net/Orientliu96/article/details/104827391">pytorch torch.where用法</a></p>
+<p><a href="https://blog.csdn.net/qq_39463175/article/details/108433103">pytorch处理inf和nan数值</a></p>
+
+    </div>
+	<div class="post-comment">
+    
+      
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'vgMlSSK3qQJHQTiJ54PJa9gW-gzGzoHsz',
+        appKey: 'AviPAsR0yDFrEHKE3ulVgLF9',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+	</div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="/tags/pytorch" rel="tag" title="pytorch">#pytorch#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="/post/2021/07/ssh%E8%BF%9C%E7%A8%8B/" rel="prev" title="SSH远程">
+        SSH远程 <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+
+
+    </footer>
+  </article>
+</section>
+
+          </div>
+        </div>
+        <div class="sidebar-toggle">
+  <div class="sidebar-toggle-line-wrap">
+    <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+    <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+  </div>
+</div>
+<aside id="sidebar" class="sidebar">
+  <div class="sidebar-inner">
+
+    <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image"
+        src="/img/author.jpg"
+        alt="Mingxian Lin" />
+    <p class="site-author-name" itemprop="name">Mingxian Lin</p>
+    <p class="site-description motion-element" itemprop="description"> 
+        M.S. in ICT. UCAS.</p>
+</div>
+      <nav class="site-state motion-element">
+    <div class="site-state-item site-state-posts">
+      <a href="/post/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">日志</span>
+      </a>
+    </div>
+    <div class="site-state-item site-state-categories">    
+        <a href="/categories/">      
+         
+        <span class="site-state-item-count">0</span>
+        
+        <span class="site-state-item-name">分类</span>
+        
+        </a>
+    </div>
+
+    <div class="site-state-item site-state-tags">
+        <a href="/tags/">
+         
+        <span class="site-state-item-count">10</span>
+        
+        <span class="site-state-item-name">标签</span>
+        </a>
+    </div>
+</nav>
+      
+      
+<div class="links-of-author motion-element">
+    
+        <span class="links-of-author-item">
+        <a href="https://github.com/MaxLin3104/" target="_blank" title="GitHub">
+            <i class="fa fa-fw fa-github"></i>
+            GitHub
+        </a>
+        </span>
+    
+        <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/" target="_blank" title="知乎">
+            <i class="fa fa-fw fa-globe"></i>
+            知乎
+        </a>
+        </span>
+    
+</div>
+
+
+      
+
+      <div class="links-of-blogroll motion-element inline">
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5b4f2ucxar6&amp;m=0&amp;s=220&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;bv=35" async="async"></script>
+</div>
+
+    </section>
+    
+  </div>
+</aside>
+
+      </div>
+    </main>
+   
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  <span itemprop="copyrightYear">  &copy; 
+  2009 - 2021</span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span class="author" itemprop="copyrightHolder">Blogs of Mingxian</span>
+ <span class="with-love"><i class="fa fa-heart"></i></span> 
+  <span id="busuanzi_container_site_pv">
+  总访问量：<span id="busuanzi_value_site_pv"><span id="busuanzi_value_site_pv">0</span></span>   </span>
+  <span class="with-love"><i class="fa fa-heart"></i></span>
+  <span id="busuanzi_container_site_uv">
+  总访客数: <span id="busuanzi_value_site_uv"><span id="busuanzi_value_site_uv">0</span></span>
+    </span>
+</div>
+<div class="powered-by">
+  Powered by - <a class="theme-link" href="http://gohugo.io" target="_blank" title="hugo" >Hugo v0.82.0</a>
+</div>
+<div class="theme-info">
+  Theme by - <a class="theme-link" href="https://github.com/xtfly/hugo-theme-next" target="_blank"> NexT
+  </a>
+</div>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [['$','$'], ['~+(','~+)']],
+            displayMath: [['$$','$$'], ['~+[','~+]']],
+            processEscapes: true,
+            processEnvironments: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+            TeX: {
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"]
+            }
+        }
+    });
+</script>
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+<script>
+    var local_imgs=document.getElementsByTagName('img');
+    for (var i = 0; i < local_imgs.length-1; i++) {
+		var src = local_imgs[i].getAttribute('src');
+        local_imgs[i].setAttribute('src',"../"+src);
+    } 
+</script>
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+      <span id="scrollpercent"><span>0</span>%</span>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+<script type="text/javascript" src="/js/vendor/jquery/index.js?v=2.1.3"></script>
+<script type="text/javascript" src="/js/vendor/fastclick/lib/fastclick.min.js?v=1.0.6"></script> 
+<script type="text/javascript" src="/js/vendor/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+<script type="text/javascript" src="/js/vendor/velocity/velocity.min.js?v=1.2.1"></script>
+<script type="text/javascript" src="/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+
+<script src="/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+<script type="text/javascript" src="/js/utils.js"></script>
+<script type="text/javascript" src="/js/motion.js"></script>
+<script type="text/javascript" src="/js/affix.js"></script>
+<script type="text/javascript" src="/js/schemes/pisces.js"></script>
+
+<script type="text/javascript" src="/js/scrollspy.js"></script>
+<script type="text/javascript" src="/js/post-details.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
+
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+
+<script type="text/javascript" src="/js/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'] ],
+      displayMath: [ ['$$','$$'] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { fonts: ["TeX"] }
+  });
+</script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML' async></script>
+</body>
+</html>

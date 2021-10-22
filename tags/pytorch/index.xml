@@ -6,7 +6,16 @@
     <description>Recent content in pytorch on Blogs of Mingxian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 29 Apr 2021 01:43:40 +0800</lastBuildDate><atom:link href="/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 22 Oct 2021 23:13:51 +0800</lastBuildDate><atom:link href="/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gather Scatter的使用</title>
+      <link>/post/2021/10/gather%E4%B8%8Escatter%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 22 Oct 2021 23:13:51 +0800</pubDate>
+      
+      <guid>/post/2021/10/gather%E4%B8%8Escatter%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>gather-scatter 的使用 scatter 在pytorch中，scatter是一个非常实用的映射函数，其将一个源张量（source）中的值按照指定的轴方向（dim）和对应的</description>
+    </item>
+    
     <item>
       <title>理解pytorch算子的使用</title>
       <link>/post/2021/04/%E7%90%86%E8%A7%A3pytorch%E7%AE%97%E5%AD%90%E7%9A%84%E4%BD%BF%E7%94%A8/</link>

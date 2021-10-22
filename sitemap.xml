@@ -1,6 +1,39 @@
 <search>
     
      <entry>
+        <title>Gather Scatter的使用</title>
+        <url>/post/2021/10/gather%E4%B8%8Escatter%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          <tag>pytorch</tag>
+        </tags>
+        <content type="html"> gather-scatter 的使用 scatter 在pytorch中，scatter是一个非常实用的映射函数，其将一个源张量（source）中的值按照指定的轴方向（dim）和对应的位置关系（index）逐个填充到目标张量（target）中。
+target.scatter(dim, index, src) 这里用CSDN里面的一个形象的例子来简要说明。 (dim=0)
+- **将source的值按照index散到target上。** - target是待填充的tensor。 - index tensor 在各个维度的长度都应该要小于 source tensor。   遍历source tensor中的每个值（index覆盖的区域），在index tensor对应的位置，寻找索引号。根据index tensor中索引号填入target的对应位置。  例如，source00的值，寻找对应索引为index00=1，即将source00填入target10的位置。  source10的值，对应索引为index10=2，将source10=5填入target20的位置。      应用：
+在深度学习制作标签的时候，可以给全零矩阵的某些行或者列赋值为1，从而制作one-hot matrix。
+tar = torch.zeros(10, 10) src = torch.ones(1, 10) index = 从数据集中获取, size=(1,10)，表示10个数据每个的标签| torch.LongTensor类型 tar_ = tar.scatter(dim=1, index=index, src=src) # 根据index将1填入每行中 gather 函数torch.gather(input, dim, index, out=None) → Tensor 沿给定轴 dim ,将输入索引张量 index 指定位置的值进行聚合。
+对一个 3 维张量,输出可以定义为:
+out[i][j][k] = input[index[i][j][k]][j][k] # if dim == 0 out[i][j][k] = input[i][index[i][j][k]][k] # if dim == 1 out[i][j][k] = input[i][j][index[i][j][k]] # if dim == 2 简单的说，就是根据index将input按照dim从中选择某些位置进行聚合。
+例子：
+import torch a = torch.randint(0, 30, (2, 3, 5)) print(a) &amp;#39;&amp;#39;&amp;#39; tensor([[[ 18., 5., 7., 1., 1.], [ 3., 26., 9., 7., 9.], [ 10., 28., 22., 27., 0.]], [[ 26., 10., 20., 29., 18.], [ 5., 24., 26., 21., 3.], [ 10., 29., 10., 0., 22.]]]) &amp;#39;&amp;#39;&amp;#39; index = torch.LongTensor([[[0,1,2,0,2], [0,0,0,0,0], [1,1,1,1,1]], [[1,2,2,2,2], [0,0,0,0,0], [2,2,2,2,2]]]) print(a.size()==index.size()) b = torch.gather(a, 1,index) print(b) &amp;#39;&amp;#39;&amp;#39; True tensor([[[ 18., 26., 22., 1., 0.], [ 18., 5., 7., 1., 1.], [ 3., 26., 9., 7., 9.]], [[ 5., 29., 10., 0., 22.], [ 26., 10., 20., 29., 18.], [ 10., 29., 10., 0., 22.]]]) 可以看到沿着dim=1，也就是列的时候。输出tensor第一页内容， 第一行分别是 按照index指定的， input tensor的第一页 第一列的下标为0的元素 第二列的下标为1元素 第三列的下标为2的元素，第四列下标为0元素，第五列下标为2元素 index--&amp;gt;0,1,2,0,2 output--&amp;gt; 18., 26., 22., 1., 0. &amp;#39;&amp;#39;&amp;#39;  输出的size与index的size是一样的  应用：
+​	可以对input tensor根据给定维度，按照index进行重新排序。
+​	- 这里用dim=0做一个例子，在0维上进行重新排序
+input = torch.randn(10,10) index = # torch.LongTensor| size=(10， 10)| index 按照列，将原来input里面的每一列换了一个顺序，通常在深度学习中，这个顺序是max或min re_sort = torch.gather(input=input, dim=0, index=index) torch.where函数的使用   根据条件，返回从x,y中选择元素所组成的张量。如果满足条件，则返回x中元素。若不满足，返回y中元素。
+  element-wise
+  torch.where(condition, x, y) -&amp;gt; Tensor 判断 inf 与 nan 在深度学习的研究过程中，出现 inf与nan是不少见的情况。这个时候，需要判断出现的地方以及进行处理。
+判断：
+- torch.isnan() - torch.isinf()  处理：
+注意：这张图有点小问题，inf替换为1的话，torch.full_like里面应该改成torch.full_like(a, 1)
+Reference 【Pytorch】scatter函数详解
+pytorch中gather函数的理解
+pytorch torch.where用法
+pytorch处理inf和nan数值
+</content>
+    </entry>
+    
+     <entry>
         <title>SSH远程</title>
         <url>/post/2021/07/ssh%E8%BF%9C%E7%A8%8B/</url>
         <categories>
