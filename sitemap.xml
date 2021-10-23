@@ -1,6 +1,22 @@
 <search>
     
      <entry>
+        <title>网络加速训练</title>
+        <url>/post/2021/10/%E7%BD%91%E7%BB%9C%E5%8A%A0%E9%80%9F%E8%AE%AD%E7%BB%83/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          <tag>pytorch</tag><tag>python</tag>
+        </tags>
+        <content type="html"> 深度学习训练加速 ddp使用参考，亲测可用（还有一个方法是使用horovod，但是没有去试）。由于数据加载是我的训练瓶颈，使用下面两个方法来提速。
+加速的参考：给训练踩踩油门 —— Pytorch 加速数据读取
+内存当做硬盘来加速 # 把 memory 声明为内存，把东西挂载到memory这个文件夹下面就ok了 # 注意： 这个重启后， memory 里面的数据会消失 sudo mount tmpfs memory -t tmpfs -o size=90G # 直接把数据cp到 memory 里面即可 # 删除内存的内容： sudo umount memory prefetch-generator 加速 pip install prefetch-generator # 新建DataLoaderX类 from torch.utils.data import DataLoader from prefetch_generator import BackgroundGenerator class DataLoaderX(DataLoader): def __iter__(self): return BackgroundGenerator(super().__iter__()) 提速原因：
+原本 PyTorch 默认的 DataLoader 会创建一些 worker 线程来预读取新的数据，但是除非这些线程的数据全部都被清空，这些线程才会读下一批数据。使用 prefetch_generator，我们可以保证线程不会等待，每个线程都总有至少一个数据在加载。
+</content>
+    </entry>
+    
+     <entry>
         <title>Line Rendering in Blender</title>
         <url>/post/2021/10/line-rendering-in-blender/</url>
         <categories>
