@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" /> 
-    <title>flow - Blogs of Mingxian</title>
+    <title>Line Rendering in Blender - Blogs of Mingxian</title>
     <meta name="keywords" content="博客,思考,读书,笔记,分享">
     
-    <meta property="og:title" content="flow">
+    <meta property="og:title" content="Line Rendering in Blender">
     <meta property="og:site_name" content="Blogs of Mingxian">
     <meta property="og:image" content="/img/author.jpg"> 
-    <meta name="title" content="flow - Blogs of Mingxian" />
+    <meta name="title" content="Line Rendering in Blender - Blogs of Mingxian" />
     <meta name="description" content=" 博客 | Leanring | Python"> 
     <link rel="shortcut icon" href="/img/favicon.ico" />
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
     <link rel="apple-touch-icon-precomposed" href="/img/apple-touch-icon.png" />
     <link href="/js/vendor/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-    
+    <link href="/js/vendor/fancybox/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
     <link href="/css/syntax.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" id="hexo.configuration">
@@ -24,7 +24,7 @@
   var CONFIG = {
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
-    fancybox: false, 
+     fancybox: true, 
     motion: true
   };
 </script>
@@ -35,7 +35,7 @@
   <meta name="referrer" content="no-referrer-when-downgrade">
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-<div class="container one-collumn sidebar-position-left   ">
+<div class="container one-collumn sidebar-position-left page-home  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -128,71 +128,196 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-<section id="posts" class="posts-collapse">
-<div class="collection-title">
-    <h2 >flow
-    <small>标签</small>
-    </h2>
-</div>
-
-<div class="collection-title">
-  <h2 class="archive-year motion-element" id="archive-year-2021">2021</h2>
-</div>
-
-  <article class="post post-type-normal }}" itemscope itemtype="http://schema.org/Article">
+<section id="posts" class="posts-expand">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <header class="post-header">
-      <h1 class="post-title">
-        <a class="post-title-link" href="/post/2021/04/glow/" itemprop="url">
-            <span itemprop="name">GLOW</span>
+      <h1 class="post-title" itemprop="name headline">
+        <a class="post-title-link" href="/post/2021/10/line-rendering-in-blender/" itemprop="url">
+        Line Rendering in Blender
         </a>
       </h1>
-
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2021-04-17"
-              content="04-17" >
-          04-17
-        </time>
+      <span class="post-time">
+<span class="post-meta-item-icon">
+    <i class="fa fa-calendar-o"></i>
+</span>
+<span class="post-meta-item-text">时间：</span>
+<time itemprop="dateCreated" datetime="2016-03-22T13:04:35+08:00" content="2021-10-23">
+    2021-10-23
+</time>
+</span> 
+      
+       <span>
+&nbsp; | &nbsp;
+<span class="post-meta-item-icon">
+    <i class="fa fa-eye"></i>
+</span>
+<span class="post-meta-item-text">阅读：</span>
+<span class="leancloud-visitors-count">1011 字 ~3分钟</span>
+</span>
+	  &nbsp; | &nbsp;
+<span class="article-tag">
+            <i class="fa fa-eye"></i> 
+            <span id="busuanzi_container_page_pv">
+            <span id="busuanzi_value_page_pv">0</span>
+            </span>
+        </span>
+
       </div>
+
     </header>
+    <div class="post-body" itemprop="articleBody">
+    <h3 id="前言">前言</h3>
+<p>**目的：**由于自己存在需求，要将3D shape渲染为线稿图。</p>
+<p>查阅了相关资料后，发现2005年的SIG中有一个比较想要的做法，<a href="https://dl.acm.org/doi/10.1145/1198555.1198577">Line Drawings from 3D Models</a>，可视化的效果在<a href="https://gfx.cs.princeton.edu/gfx/proj/sugcon/">这里</a>，这个技术被称为suggestive contours。</p>
+<p><img src="line-rendering-in-blender.assets/image-20211023140813290.png" alt="image-20211023140813290"></p>
+<h3 id="suggestive-contours">suggestive contours</h3>
+<p>在师兄的帮助下，找到一些和suggestive contour相关的工具。</p>
+<ul>
+<li><a href="https://benardp.github.io/contours_viewer/">Contours Viewer</a>
+<ul>
+<li>这个好像只有页面，没有代码</li>
+<li>例子：<img src="line-rendering-in-blender.assets/image-20211023141300506.png" alt="image-20211023141300506"></li>
+</ul>
+</li>
+<li><a href="http://www.dgp.toronto.edu/~mccrae/projects/contourchaining/">Contour Chaining for Stroke Stylization A Project in Non-Photorealistic Rendering</a>
+<ul>
+<li><img src="line-rendering-in-blender.assets/image-20211023141434794.png" alt="image-20211023141434794"></li>
+</ul>
+</li>
+<li><a href="https://github.com/yuki-koyama/btoon">btoon</a></li>
+<li><a href="https://github.com/mikeroberts3000/SketchBasedShapeRetrieval">SketchBasedShapeRetrieval</a></li>
+<li><a href="https://github.com/DifanLiu/NeuralContours">NeuralContours</a>
+<ul>
+<li>基于神经网络的方法</li>
+</ul>
+</li>
+</ul>
+<p>最后发现，Blender 中的 freestyle 也能直接渲染出 suggestive contour。于是，选择在Blender上进行渲染。</p>
+<h3 id="blender-freestyle">Blender Freestyle</h3>
+<ul>
+<li>
+<p>先是看了一下油管上<a href="https://www.youtube.com/watch?v=_QVNIEP1E5M">Render Edges and Styles in Blender with FREESTYLE! Beginners start here!</a>的这个视频，在Blender中在图形化界面中如何使用freestyle进行suggestive contour渲染。</p>
+</li>
+<li>
+<p>代码是在<a href="https://github.com/panmari/stanford-shapenet-renderer">stanford-shapenet-renderer</a>的基础上进行修改。这个repo是渲染材质、法向、深度等等。</p>
+</li>
+<li>
+<p>注意事项：将freestyle作为单独输出通道的功能，在blender 2.80版本是不支持的。</p>
+</li>
+</ul>
+<p>油管中图形化界面的操作可以大致分为：</p>
+<ul>
+<li>在 Render Porperties中将freestyle打开
+<ul>
+<li><img src="line-rendering-in-blender.assets/image-20211023143833547.png" alt="image-20211023143833547"></li>
+</ul>
+</li>
+<li>在 view layer properties中选中freestyle，并且勾上 As render pass(作为独立通道输出)。
+<ul>
+<li><img src="line-rendering-in-blender.assets/image-20211023143944849.png" alt="image-20211023143944849"></li>
+</ul>
+</li>
+<li>在上图的freestyle line set中把edge type里面的suggestive contour勾上</li>
+<li>接着进行渲染就可以得到line drawing rendering</li>
+</ul>
+<p>python代码中进行freestyle渲染大致分为：(照着图形化界面模仿一下)</p>
+<ul>
+<li>在render中开启freestyle
+<ul>
+<li><a href="https://github.com/MaxLin3104/blender_freestyle_line_drawing/blob/0437cf26e25ebece819a71ee22786e1195be7447/render_object.py#L22">bpy.context.scene.render.use_freestyle = True</a></li>
+<li><img src="line-rendering-in-blender.assets/image-20211023144420027.png" alt="image-20211023144420027"></li>
+</ul>
+</li>
+<li>在 view layer中开启freestyle，并且作为一个独立的通道输出
+<ul>
+<li><a href="https://github.com/MaxLin3104/blender_freestyle_line_drawing/blob/0437cf26e25ebece819a71ee22786e1195be7447/render_object.py#L41">bpy.context.scene.view_layers[&ldquo;View Layer&rdquo;].use_freestyle = True</a></li>
+<li><img src="line-rendering-in-blender.assets/image-20211023144525068.png" alt="image-20211023144525068"></li>
+<li>这里如果没有把<code>as_render_pass</code>打开，那么后面在 <a href="https://github.com/MaxLin3104/blender_freestyle_line_drawing/blob/0437cf26e25ebece819a71ee22786e1195be7447/render_object.py#L109">render_layers.output</a>中就无法找到freestyle这个属性</li>
+</ul>
+</li>
+<li>创建一个新的输出文件，并将freestyle的输出链接进去
+<ul>
+<li><a href="https://github.com/MaxLin3104/blender_freestyle_line_drawing/blob/0437cf26e25ebece819a71ee22786e1195be7447/render_object.py#L107">fs_output = tree.nodes.new(type=&ldquo;CompositorNodeOutputFile&rdquo;)</a></li>
+<li><img src="line-rendering-in-blender.assets/image-20211023144751498.png" alt="image-20211023144751498"></li>
+</ul>
+</li>
+<li>最后调整相机参数以及模型，进行渲染即可</li>
+</ul>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>
+<p>关于参数的使用，在<a href="https://docs.blender.org/api/current/index.html">Blender 2.93 API documents</a>中寻找并且进行调试。</p>
+</li>
+<li>
+<p>Blender的freestyle存在bug，当转动camera保持object的情况下，相机视角每次更新好像是不会同步。<a href="https://developer.blender.org/T59581">Freestyle rendering not in sync with camera move</a>。使用freestyle的时候，我最后选择了选择对object进行旋转。</p>
+</li>
+<li>
+<p>一份简易的参考代码在<a href="https://github.com/MaxLin3104/blender_freestyle_line_drawing">blender_freestyle_line_drawing</a>。</p>
+</li>
+</ul>
+
+    </div>
+	<div class="post-comment">
+    
+      
+  
+  <div id="vcomments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+
+  <script type="text/javascript">
+    new Valine({
+        el: '#vcomments' ,
+        appId: 'vgMlSSK3qQJHQTiJ54PJa9gW-gzGzoHsz',
+        appKey: 'AviPAsR0yDFrEHKE3ulVgLF9',
+        notify: 'false', 
+        verify: 'false', 
+        avatar:'mm', 
+        placeholder: '说点什么吧...',
+        visitor: 'true'
+    });
+  </script>
+	</div>
+    <footer class="post-footer">
+     
+ 
+<div class="post-tags">     
+     
+    <a href="/tags/blender" rel="tag" title="blender">#blender#</a>
+    
+    <a href="/tags/python" rel="tag" title="python">#python#</a>
+    
+</div>
+
+
+
+     <div class="post-nav">
+    <div class="post-nav-next post-nav-item">
+    
+    </div>
+
+    <div class="post-nav-prev post-nav-item">
+    
+        <a href="/post/2021/10/gather%E4%B8%8Escatter%E7%9A%84%E4%BD%BF%E7%94%A8/" rel="prev" title="Gather Scatter的使用">
+        Gather Scatter的使用 <i class="fa fa-chevron-right"></i>
+        </a>
+    
+    </div>
+</div>
+      
+     
+     
+     
+
+
+
+
+
+
+    </footer>
   </article>
-
-
- </section>
-
-
-
-
-
-
-
-
-
-  
-  
-
-
-
-
-
-
-  
-  
-
-
-
-<nav class="pagination">
-    
-    
-        
-        
-          <span class="page-number current">1</span>
-        
-        
-    
-    
-</nav>
-
+</section>
 
           </div>
         </div>
@@ -242,13 +367,6 @@
     </div>
 </nav>
       
-<div class="feed-link motion-element">
-<a href="/tags/flow/index.xml" rel="alternate" type="application/rss+xml" target="_blank">
-    <i class="fa fa-rss"></i>
-    RSS 订阅
-</a>
-</div>
-
       
 <div class="links-of-author motion-element">
     
@@ -355,16 +473,18 @@
 <script type="text/javascript" src="/js/vendor/velocity/velocity.ui.min.js?v=1.2.1"></script>
 <script src="/js/vendor/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
 
+<script src="/js/vendor/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>
+
 <script type="text/javascript" src="/js/utils.js"></script>
 <script type="text/javascript" src="/js/motion.js"></script>
 <script type="text/javascript" src="/js/affix.js"></script>
 <script type="text/javascript" src="/js/schemes/pisces.js"></script>
 
-<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script type="text/javascript" src="/js/scrollspy.js"></script>
+<script type="text/javascript" src="/js/post-details.js"></script>
+<script type="text/javascript" src="/js/toc.js"></script>
 
-<script type="text/javascript" id="motion.page.archive">
-  $('.archive-year').velocity('transition.slideLeftIn');
-</script>
+<script type="text/javascript" src="/js/bootstrap.js"></script>
 
 <script type="text/javascript" src="/js/search.js"></script>
 <script type="text/x-mathjax-config">

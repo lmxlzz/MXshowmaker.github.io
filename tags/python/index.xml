@@ -6,7 +6,16 @@
     <description>Recent content in python on Blogs of Mingxian</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 01 Jul 2021 10:44:50 +0800</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Oct 2021 14:03:22 +0800</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Line Rendering in Blender</title>
+      <link>/post/2021/10/line-rendering-in-blender/</link>
+      <pubDate>Sat, 23 Oct 2021 14:03:22 +0800</pubDate>
+      
+      <guid>/post/2021/10/line-rendering-in-blender/</guid>
+      <description>前言 **目的：**由于自己存在需求，要将3D shape渲染为线稿图。 查阅了相关资料后，发现2005年的SIG中有一个比较想要的做法，Line</description>
+    </item>
+    
     <item>
       <title>Intro2python_part4</title>
       <link>/post/2021/07/intro2python_part4/</link>

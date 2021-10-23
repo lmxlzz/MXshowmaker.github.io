@@ -1,6 +1,31 @@
 <search>
     
      <entry>
+        <title>Line Rendering in Blender</title>
+        <url>/post/2021/10/line-rendering-in-blender/</url>
+        <categories>
+          
+        </categories>
+        <tags>
+          <tag>blender</tag><tag>python</tag>
+        </tags>
+        <content type="html"> 前言 **目的：**由于自己存在需求，要将3D shape渲染为线稿图。
+查阅了相关资料后，发现2005年的SIG中有一个比较想要的做法，Line Drawings from 3D Models，可视化的效果在这里，这个技术被称为suggestive contours。
+suggestive contours 在师兄的帮助下，找到一些和suggestive contour相关的工具。
+ Contours Viewer  这个好像只有页面，没有代码 例子：   Contour Chaining for Stroke Stylization A Project in Non-Photorealistic Rendering     btoon SketchBasedShapeRetrieval NeuralContours  基于神经网络的方法    最后发现，Blender 中的 freestyle 也能直接渲染出 suggestive contour。于是，选择在Blender上进行渲染。
+Blender Freestyle   先是看了一下油管上Render Edges and Styles in Blender with FREESTYLE! Beginners start here!的这个视频，在Blender中在图形化界面中如何使用freestyle进行suggestive contour渲染。
+  代码是在stanford-shapenet-renderer的基础上进行修改。这个repo是渲染材质、法向、深度等等。
+  注意事项：将freestyle作为单独输出通道的功能，在blender 2.80版本是不支持的。
+  油管中图形化界面的操作可以大致分为：
+ 在 Render Porperties中将freestyle打开     在 view layer properties中选中freestyle，并且勾上 As render pass(作为独立通道输出)。     在上图的freestyle line set中把edge type里面的suggestive contour勾上 接着进行渲染就可以得到line drawing rendering  python代码中进行freestyle渲染大致分为：(照着图形化界面模仿一下)
+ 在render中开启freestyle  bpy.context.scene.render.use_freestyle = True    在 view layer中开启freestyle，并且作为一个独立的通道输出  bpy.context.scene.view_layers[&amp;ldquo;View Layer&amp;rdquo;].use_freestyle = True  这里如果没有把as_render_pass打开，那么后面在 render_layers.output中就无法找到freestyle这个属性   创建一个新的输出文件，并将freestyle的输出链接进去  fs_output = tree.nodes.new(type=&amp;ldquo;CompositorNodeOutputFile&amp;rdquo;)    最后调整相机参数以及模型，进行渲染即可  注意事项：
+  关于参数的使用，在Blender 2.93 API documents中寻找并且进行调试。
+  Blender的freestyle存在bug，当转动camera保持object的情况下，相机视角每次更新好像是不会同步。Freestyle rendering not in sync with camera move。使用freestyle的时候，我最后选择了选择对object进行旋转。
+  一份简易的参考代码在blender_freestyle_line_drawing。
+  </content>
+    </entry>
+    
+     <entry>
         <title>Gather Scatter的使用</title>
         <url>/post/2021/10/gather%E4%B8%8Escatter%E7%9A%84%E4%BD%BF%E7%94%A8/</url>
         <categories>

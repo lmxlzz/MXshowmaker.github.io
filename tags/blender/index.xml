@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blender on Blogs of Mingxian</title>
+    <link>/tags/blender/</link>
+    <description>Recent content in blender on Blogs of Mingxian</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 23 Oct 2021 14:03:22 +0800</lastBuildDate><atom:link href="/tags/blender/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Line Rendering in Blender</title>
+      <link>/post/2021/10/line-rendering-in-blender/</link>
+      <pubDate>Sat, 23 Oct 2021 14:03:22 +0800</pubDate>
+      
+      <guid>/post/2021/10/line-rendering-in-blender/</guid>
+      <description>前言 **目的：**由于自己存在需求，要将3D shape渲染为线稿图。 查阅了相关资料后，发现2005年的SIG中有一个比较想要的做法，Line</description>
+    </item>
+    
+  </channel>
+</rss>
